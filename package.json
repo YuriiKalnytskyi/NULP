@@ -1,0 +1,30 @@
+{
+  "name": "nulp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "lerna run --parallel start ",
+    "start:local": "lerna run --parallel start:local ",
+    "format:check": "prettier --check './**/*.{js, css, html, tsx, ts}'",
+    "format:fix": "prettier --write './**/*.{js, css, html, tsx, ts}'",
+    "lint:check": "eslint './**/*.{js, css, html, tsx, ts}'"
+  },
+  "devDependencies": {
+    "eslint": "^8.22.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.4.2",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "dotenv": "^16.0.1",
+    "lerna": "^4.0.0",
+    "prettier": "^2.7.1"
+  }
+}
