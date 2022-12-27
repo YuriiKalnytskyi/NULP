@@ -1,0 +1,629 @@
+.rootAuth {
+    width: 100%;
+    height: 100%;
+    /*background: #0D1118;*/
+    position: relative;
+    display: flex;
+    /*justify-content: center;*/
+}
+
+.ellipseContainer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.changeLanguage {
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    z-index: 5;
+}
+
+.ellipse1 {
+    width: 1169px;
+    height: 1169px;
+    background: radial-gradient(50% 39.69% at 50% 50%, rgba(1, 233, 112, 0.45) 0%, rgba(13, 17, 24, 0.47) 100%);
+    /*background: radial-gradient(*/
+    /*  50% 39.69% at 50% 50%,*/
+    /*  #c81b1b 0%,*/
+    /*  rgba(13, 17, 24, 0.47) 100%*/
+    /*);*/
+}
+
+.frame {
+    position: absolute;
+    z-index: 2;
+}
+
+.noise {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+}
+
+.authInfoContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 3;
+}
+
+.logoContainer {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ingLogo {
+    width: 118px;
+    /*height: 118px;*/
+}
+
+.formContainer {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.formContainerSmall {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    /*margin-top: 15%;*/
+    justify-content: center;
+}
+
+.formContainerSmallPayment {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    margin-top: 20%;
+    display: flex;
+    align-items: center;
+}
+
+.formBig {
+    width: 100%;
+    height: 500px;
+    border-radius: 7px;
+    filter: drop-shadow(0px 20px 24px rgba(141, 141, 141, 0.161));
+    background: #ffffff;
+}
+
+.formSmall {
+    width: 100%;
+    height: 350px;
+    border-radius: 7px;
+    filter: drop-shadow(0px 20px 24px rgba(141, 141, 141, 0.161));
+    background: #ffffff;
+}
+
+.formSmallPayment {
+    width: 100%;
+    height: 220px;
+    border-radius: 7px;
+    filter: drop-shadow(0px 20px 24px rgba(141, 141, 141, 0.161));
+    background: #ffffff;
+}
+
+.lockContainer {
+    width: 100%;
+    height: 37%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.boxContainer {
+    width: 100%;
+    height: 45%;
+}
+
+.boxContainer2 {
+    width: 100%;
+    height: 79%;
+}
+
+.boxContainer3 {
+    width: 100%;
+    height: 55%;
+}
+
+.buttonContainer {
+    margin-top: 3%;
+    width: 100%;
+    height: 18%;
+    display: flex;
+    justify-content: center;
+}
+
+.buttonContainer2 {
+    width: 100%;
+    height: 36%;
+    display: flex;
+    justify-content: center;
+}
+
+.buttonInfo {
+    width: 90%;
+    height: 100%;
+    align-items: stretch;
+}
+
+.link {
+    width: 100%;
+    height: 40px;
+}
+
+.btnBlack {
+    width: 100%;
+    height: 40%;
+    /*height: 40px;*/
+    background: #000000;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: Gilroy;
+    font-weight: bold;
+    line-height: 23px;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.btnText {
+    width: 100%;
+    /*height: 40%;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-family: Gilroy;
+    font-weight: bold;
+    line-height: 23px;
+    border: none;
+}
+
+.btnDisabled {
+    width: 100%;
+    height: 40%;
+    background: silver;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: Gilroy;
+    font-weight: bold;
+    line-height: 23px;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.btnOrange {
+    width: 100%;
+    height: 40%;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: Gilroy;
+    font-weight: bold;
+    line-height: 23px;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+
+    /*background: linear-gradient(90.56deg, #ff0000 0%, #ff8a00 106.12%);*/
+    /*background: linear-gradient(90.53deg, #24FF00 0%, #01C5D0 100%);*/
+    background: linear-gradient(90.56deg, #0EC766 0%, #000000 106.12%);
+}
+
+.forgotContainerText {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.forgotTitle {
+    width: 100%;
+    text-align: center;
+    padding-top: 25px;
+    font-family: Gilroy;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    color: #1e1e1e;
+    margin-bottom: 20px;
+}
+
+.forgotText {
+    width: 80%;
+    /*margin-top: 10px;*/
+    text-align: center;
+    font-family: Gilroy;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+    color: #1e1e1e;
+}
+
+.forgotContainerInput {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputForgot1 {
+    width: 90%;
+    height: 40px;
+    border-radius: 8px;
+    padding-left: 10px;
+    font-family: Gilroy;
+    font-weight: bold;
+    font-size: 16px;
+    border: 1px solid #2f3640;
+    transition: all 0.4s;
+}
+
+.inputForgot1:focus {
+    outline: none;
+}
+
+.forgotContainerInputStep2 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: none;
+    position: relative;
+}
+
+.forgotContainerInputStep2::after {
+    width: 150px;
+    content: '______________';
+    display: block;
+    white-space: pre;
+    letter-spacing: 3px;
+}
+
+.inputForgot2 {
+    height: 13%;
+    position: relative;
+    font-size: 16px;
+    z-index: 2;
+    border: none;
+    background: transparent;
+    width: 150px;
+    text-indent: 9px;
+    letter-spacing: 26px;
+    font-family: Gilroy;
+    font-weight: bold;
+}
+
+.inputForgot2:focus {
+    outline: none;
+}
+
+.inputForgot3 {
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    padding-left: 10px;
+    font-family: Gilroy;
+    font-weight: bold;
+    font-size: 16px;
+    border: 1px solid #2f3640;
+    transition: all 0.4s;
+}
+
+.inputForgot3:focus {
+    outline: none;
+}
+
+.inputError {
+    width: 90%;
+    padding-left: 12px;
+    font-family: Gilroy;
+    font-weight: 300;
+    font-size: 10px;
+    line-height: 13px;
+    color: #ff5353;
+}
+
+.inputError2 {
+    width: 100%;
+    position: absolute;
+    bottom: 20%;
+    left: 30%;
+    /*padding-left: 12px;*/
+    font-family: Gilroy;
+    font-weight: 300;
+    font-size: 10px;
+    line-height: 13px;
+    color: #ff5353;
+}
+
+.forgotIcon {
+    position: absolute;
+    top: 25%;
+    right: 3%;
+}
+
+.forgotIcon2 {
+    position: absolute;
+    top: 24%;
+    right: 8%;
+    cursor: pointer;
+}
+
+.inputStail {
+    width: 90%;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid silver;
+    padding: 10px;
+    font-family: Gilroy;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: black;
+}
+
+.inputStail::placeholder {
+    color: #c5c5c5;
+}
+
+.inputStail:focus {
+    outline: none;
+}
+
+.checkboxStail {
+    width: 20px;
+    height: 20px;
+    color: #ae2727;
+    background: #274dae;
+}
+
+.inputContainer {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+
+.textOferte {
+    margin-left: 9px;
+    font-family: Gilroy;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+}
+
+.checkboxContainer {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    padding-left: 23px;
+    position: relative;
+}
+
+.checkboxContainer2 {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    padding-left: 23px;
+    margin-top: 15px;
+    position: relative;
+}
+
+@media screen and (max-width: 600px) {
+    .rootAuth {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        display: flex;
+    }
+
+    .formBig {
+        width: 90%;
+    }
+
+    .formSmall {
+        margin-top: 10%;
+        width: 90%;
+    }
+
+    .ellipse1 {
+        background: radial-gradient(100% 39.69% at 50% 50%, rgba(1, 233, 112, 0.45) 0%, rgba(13, 17, 24, 0.47) 100%);
+
+    }
+
+    .btnDisabled {
+        margin-top: 7%;
+    }
+
+    .btnBlack {
+        margin-top: 7%;
+    }
+
+    .lockContainer image {
+        height: 50%;
+    }
+
+    .forgotContainerInput {
+        margin-top: 3%;
+    }
+
+    .frame {
+        height: 70%;
+        top: 20%;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .rootAuth {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        display: flex;
+    }
+
+    .formBig {
+        margin-top: 3%;
+        width: 60%;
+    }
+
+    .formSmall {
+        margin-top: 10%;
+        width: 60%;
+    }
+
+    .btnDisabled {
+        margin-top: 3%;
+    }
+
+    .btnBlack {
+        margin-top: 3%;
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+    .rootAuth {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        display: flex;
+    }
+
+    .formBig {
+        width: 50%;
+    }
+
+    .formSmall {
+        margin-top: 15%;
+        width: 60%;
+    }
+
+    .logoContainer {
+        margin-top: 2%;
+    }
+
+    .btnDisabled {
+        margin-top: 3%;
+    }
+
+    .btnBlack {
+        margin-top: 3%;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .rootAuth {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        display: flex;
+    }
+
+    .formBig {
+        width: 400px;
+    }
+
+    .formSmall {
+        width: 400px;
+    }
+
+    .btnDisabled {
+        margin-top: 3%;
+    }
+
+    .btnBlack {
+        margin-top: 3%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .rootAuth {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        display: flex;
+    }
+
+    .formBig {
+        width: 400px;
+    }
+
+    .formSmall {
+        width: 400px;
+    }
+
+    .btnDisabled {
+        margin-top: 3%;
+    }
+
+    .btnBlack {
+        margin-top: 3%;
+    }
+}
+
+.countryDiv {
+    width: 150px;
+    height: 150px;
+    overflow-y: auto;
+}
+
+.countryDiv::-webkit-scrollbar {
+    width: 1px;
+    background-color: #ddd;
+}
+
+.countryDiv::-webkit-scrollbar-thumb {
+    background-color: #444;
+}
+
+.spanText2 {
+    font-family: Gilroy;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    color: #000000;
+    margin-right: 10px;
+}
+
+.recaptcha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+}

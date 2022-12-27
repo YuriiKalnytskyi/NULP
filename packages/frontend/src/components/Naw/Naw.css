@@ -1,0 +1,155 @@
+.NawContainer {
+    width: 100%;
+    height: 100%;
+}
+.NawContainer2 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.line {
+    width: 2px;
+    height: 100%;
+    background: #EBEBEB;
+    opacity: 0.4;
+    position: absolute;
+    right: 0;
+}
+
+.line2 {
+    margin: 0 auto;
+    width: 70%;
+    height: 1px;
+    background: #EBEBEB;
+    opacity: 0.4;
+}
+
+.divLogo {
+    position: relative;
+    width: 100%;
+    height: 14%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divLogo img {
+    width: 78px;
+    /*height: 78px;*/
+}
+
+.left {
+    width: 25px;
+    height: 50px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    opacity: 0.4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border: 2px solid #EBEBEB;
+    border-right: none;
+}
+
+.nawContainer {
+    width: 100%;
+    height: 86%;
+}
+
+.componentContainer {
+    width: 100%;
+    margin-bottom: 10px;
+    height: fit-content;
+}
+.componentContainer2 {
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+    /*background: #274dae;*/
+    margin-bottom: 10px;
+    height: fit-content;
+}
+
+.naw {
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+
+}
+
+/*++++++++++++++++++++++*/
+.nawComponent {
+    position: relative;
+    width: 90%;
+    height: 100%;
+    display: flex;
+    margin: 10px 0 10px 0;
+    justify-content: flex-end;
+}
+
+.lineComponent {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: #AE2727;
+}
+
+.component {
+    width: 90%;
+    display: flex;
+}
+
+.imgContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imgContainer2 {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+.imgNaw{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    height: 10%;
+}
+.titleNaw{
+    padding-left: 10%;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.0016em;
+    /*color: #EBEBEB;*/
+}
+.show{
+    position: absolute;
+    left: 70px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 5px 15px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.item{
+    width: 50px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

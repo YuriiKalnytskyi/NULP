@@ -1,0 +1,59 @@
+@font-face {
+  font-family: 'Gilroy';
+  font-weight: 100;
+  src: url("Gilroy-Thin.woff")
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  font-weight: 200;
+  src: url("Gilroy-UltraLight.woff")
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  font-weight: 300;
+  src: url("Gilroy-Light.woff")
+}
+
+@font-face {
+  font-family: "Gilroy";
+  font-weight: 400;
+  src: url("Gilroy-Regular.woff")
+}
+
+@font-face {
+  font-family: "Gilroy";
+  font-weight: 500;
+  src: url("Gilroy-Medium.woff")
+}
+
+@font-face {
+  font-family: "Gilroy";
+  font-weight: 600;
+  src: url("Gilroy-SemiBold.woff")
+}
+
+@font-face {
+  font-family: "Gilroy";
+  font-weight: 700;
+  src: url("Gilroy-Bold.woff")
+}
+
+@font-face {
+  font-family: "Gilroy";
+  font-weight: 800;
+  src: url("Gilroy-ExtraBold.woff")
+}
+
+@font-face {
+  font-family: "Gilroy";
+  font-weight: 900;
+  src: url("Gilroy-Black.woff")
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('Ibmplexmonomedium.woff');
+  font-weight: normal;
+}
