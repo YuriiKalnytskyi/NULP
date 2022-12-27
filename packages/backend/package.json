@@ -4,9 +4,9 @@
   "main": "server.js",
   "license": "ISC",
   "scripts": {
-    "start:env": "env-cmd -f .env.${ENV} nodemon server.js",
+    "start:env": "env-cmd -f .env.${local} nodemon server.js",
     "start": "ENV=local npm run start:env",
-    "start:local": "ENV=local npm run start:env",
+    "start:local": "npm run start:env",
     "db:create": "npx sequelize db:create",
     "db:migrate": "npx sequelize db:migrate",
     "db:seed": "npx sequelize db:seed:all",
