@@ -1,0 +1,1102 @@
+.TeachContainer {
+    width: 100%;
+    height: 100%;
+    color: white;
+    display: flex;
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.TeachContainerSkrol {
+    width: 100%;
+    height: 87%;
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    overflow-y: auto;
+}
+
+.TeachContainerSkrol2 {
+    width: 20%;
+    height: 87%;
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    overflow-y: auto;
+    right: 0;
+}
+
+.addTeaching {
+    width: 250px;
+    /*min-width: 250px;*/
+    height: 250px;
+    background: rgba(13, 17, 24, 0.51);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin-right: 3.2%;
+    margin-bottom: 30px;
+}
+
+.teachingWrapper {
+    /*margin-left: 50px;*/
+    width: 250px;
+    /*min-width: 250px;*/
+    height: 250px;
+    background: #0D1118;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 21px;
+    position: relative;
+    margin-bottom: 30px;
+    /*margin-right: 20px;*/
+    margin-right: 3.2%;
+}
+
+
+.teachingWrapperContainer {
+    width: 80%;
+    height: 100%;
+
+}
+
+.teachingTime {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.0016em;
+    color: #FAFFFC;
+    margin: 5px 0 0 18px;
+}
+
+.teachingTitle {
+    width: 90%;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #FAFFFC;
+    margin: 0 0 5px 18px;
+
+}
+
+.teachingInfo {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #FAFFFC;
+    width: 70%;
+    margin-top: 10px;
+    margin-left: 18px;
+}
+
+.teachingButton {
+    width: 190px;
+    height: 40px;
+    position: absolute;
+    bottom: 18px;
+    left: 30px;
+}
+
+.readTeachingButton {
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+    border-radius: 6px;
+    border: 1px solid white;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 40px;
+    letter-spacing: 0.0016em;
+    color: #0D1118;
+}
+
+.createNewsContainer {
+    width: 100%;
+    height: 90%;
+    background: #0D1118;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 21px;
+    position: relative;
+}
+
+.closeTeach {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.addTeachingInputTitle {
+    margin-top: 25px;
+    width: 100%;
+    height: 56px;
+    position: relative;
+}
+
+.teachingInputTitle {
+    position: absolute;
+    left: 18px;
+    width: 650px;
+    height: 100%;
+    background: #0D1118;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding-left: 20px;
+    font-family: Gilroy;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #FAFFFC;
+}
+
+.teachingInputLink {
+    position: absolute;
+    left: 18px;
+    top: 70px;
+    width: 650px;
+    height: 100%;
+    background: #0D1118;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding-left: 20px;
+
+    font-family: Gilroy;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #FAFFFC;
+}
+
+.teachingInputTitle::placeholder,
+.teachingInputLesson::placeholder,
+.teachingInputLink::placeholder {
+    color: #FAFFFC;
+}
+
+.teachingInputLesson {
+    width: 346px;
+    position: absolute;
+    right: 70px;
+    height: 100%;
+    background: #0D1118;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding-left: 20px;
+
+    font-family: Gilroy;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #FAFFFC;
+}
+
+.teachingTextArea {
+    position: absolute;
+    left: 18px;
+    top: 180px;
+    width: 92.5%;
+    height: 60%;
+    border-radius: 10px;
+}
+
+.teachingTextAreaWrapper {
+    width: 100%;
+    height: 100%;
+    padding: 10px 0 0 10px;
+    font-family: Gilroy;
+    font-weight: 400;
+    font-size: 16px;
+    background: #0D1118;
+    font-style: normal;
+    border-radius: 10px;
+    color: #FAFFFC;
+
+}
+
+.teachingTextAreaWrapper::placeholder {
+    color: #FAFFFC;
+}
+
+.addTeachingButtonContainer {
+    width: 100%;
+    position: relative;
+    top: 72%;
+    height: 40px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.addTeachingButton {
+    width: 190px;
+    height: 40px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    border: 1px solid white;
+    margin-left: 22px;
+
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    color: #0D1118
+}
+
+.redTeachingWrapper {
+    width: 800px;
+    height: 650px;
+    background: #0D1118;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 21px;
+}
+
+.teachingTitleRed {
+    width: 100%;
+    height: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FAFFFC;
+}
+
+.teachingTitleRed2 {
+    width: 100%;
+    height: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #FAFFFC;
+}
+
+.videoContainer {
+    width: 100%;
+    height: 56%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.teachingDescRed {
+    width: 90%;
+    height: 20%;
+    padding-top: 15px;
+    margin: 0 auto;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #FAFFFC;
+}
+
+.teachingBtnRed {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*============================*/
+
+.createContainer {
+    width: 100%;
+    height: 90%;
+    background: #0D1118;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 21px;
+    position: relative;
+}
+
+.closeCard {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.addInputTitle {
+    width: 645px;
+    height: 56px;
+    margin: 25px 0 40px 44px;
+}
+
+.InputTitle {
+    width: 100%;
+    height: 56px;
+
+    background: #0D1118;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding-left: 20px;
+    margin-top: 20px;
+
+    font-family: Gilroy;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #FAFFFC;
+}
+
+.InputTitle2 {
+    width: 100%;
+    height: 70%;
+
+    word-break: break-all;
+
+    background: #0D1118;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding-left: 20px;
+    margin-top: 20px;
+
+    font-family: Gilroy;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #FAFFFC;
+}
+
+.InputTitle2,
+.InputTitle,
+.InputLesson::placeholder {
+    color: #FAFFFC;
+}
+
+.InputTitle2,
+.InputLesson,
+.InputTitle:focus {
+    outline: none;
+}
+
+.InputLesson {
+    width: 346px;
+    height: 56px;
+    position: absolute;
+    right: 70px;
+    top: 25px;
+    background: #0D1118;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding-left: 20px;
+
+    font-family: Gilroy;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #FAFFFC;
+}
+
+.scrollCreate {
+    width: 100%;
+    height: 400px;
+    /*background: #2754ae;*/
+    display: flex;
+    position: fixed;
+    overflow-y: auto;
+}
+
+.TextArea {
+    width: 70%;
+    height: 100%;
+    margin-left: 44px;
+    border-radius: 10px;
+}
+
+.addButtonContainer {
+    width: 91%;
+    height: 40px;
+    margin: 10px auto;
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    left: 0;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.addButton2 {
+    width: 150px;
+    height: 40px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    border: 1px solid white;
+    /*margin-left: 22px;*/
+
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 16px;
+    color: #0D1118;
+    cursor: pointer;
+
+}
+
+.addButton {
+    width: 190px;
+    height: 40px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    border: 1px solid white;
+    /*margin-left: 22px;*/
+
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 16px;
+    color: #0D1118;
+    cursor: pointer;
+
+}
+
+.addButtonDisable {
+    cursor: pointer;
+    width: 190px;
+    height: 40px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    border: 3px solid #b83333;
+    /*margin-left: 22px;*/
+
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 16px;
+    color: #0D1118
+}
+
+.updateUserContainer {
+    width: 400px;
+    height: 300px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 25px;
+    cursor: pointer;
+    color: red;
+}
+
+.updateContainer {
+    width: 80%;
+    height: 100%;
+}
+
+.addTextBtn {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.addText {
+    width: 100%;
+    height: fit-content;
+    word-break: break-all;
+    display: flex;
+    flex-direction: column;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+
+    font-family: Gilroy;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #ffffff;
+
+}
+
+.addImage2 {
+    width: 100%;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 3px;
+}
+
+.addButton3 {
+    width: 150px;
+    height: 40px;
+    background: #000000;
+    border-radius: 6px;
+    border: 1px solid white;
+    /*margin-left: 22px;*/
+
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff
+}
+
+.fileContainer {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fileInput {
+    /*display: none;*/
+}
+
+.labelInput {
+    color: #ffffff;
+    height: 60px;
+    width: 150px;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.text2 {
+    width: fit-content;
+    height: fit-content;
+    /*display: flex;*/
+    flex-wrap: wrap;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+    color: #FFFFFF;
+
+}
+
+.editIcon {
+    margin-left: 20px;
+}
+
+.methodologyContainer {
+    width: 100%;
+    height: 100%;
+    color: white;
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    display: flex;
+}
+
+.methodologyContainerSkrol {
+    width: 100%;
+    /*height: 87%;*/
+    height: fit-content;
+    max-height: 87%;
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    overflow-y: auto;
+
+}
+
+.methodologyContainerSkrol2 {
+    width: 30%;
+    height: fit-content;
+    max-height: 87%;
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    overflow-y: auto;
+    right: 0;
+}
+
+.addMethodology {
+    width: 350px;
+    height: 200px;
+    background: rgba(13, 17, 24, 0.51);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin-right: 1.1%;
+    margin-bottom: 30px;
+}
+
+.methodologyWrapper {
+    width: 350px;
+    height: 200px;
+    background: #0D1118;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 21px;
+    position: relative;
+    margin-bottom: 30px;
+    margin-right: 1.1%;
+}
+
+.methodologyWrapper2 {
+    width: 687px;
+    min-height: 320px;
+    max-height: 670px;
+    height: 635px;
+    background: #0D1118;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 21px;
+    position: relative;
+    margin-bottom: 30px;
+    margin-right: 1.1%;
+}
+
+.methodologyTime {
+    max-height: 30px;
+    height: 10%;
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.0016em;
+    color: #FAFFFC;
+    margin: 5px 0 0 18px;
+}
+
+.methodologyTime2 {
+    width: 100%;
+    max-height: 30px;
+    height: 10%;
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.0016em;
+    color: #FAFFFC;
+}
+
+.methodologyTitle {
+    width: 90%;
+    height: fit-content;
+    max-height: 200px;
+    font-family: Gilroy;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #FAFFFC;
+    margin: 5px 0 15px 18px;
+}
+
+.methodologyTitle2 {
+    width: 90%;
+    height: fit-content;
+    max-height: 200px;
+    font-family: Gilroy;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    color: #FAFFFC;
+    margin: 10px auto;
+}
+
+.methodologyInfo {
+    width: 70%;
+    height: 40%;
+    font-family: Gilroy;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #FAFFFC;
+    margin-left: 20px;
+}
+
+.methodologyInfo2Container {
+    width: 90%;
+    height: 75%;
+    min-height: 400px;
+    max-heightx: 470px;
+    margin: 10px auto;
+}
+
+
+.methodologyInfo2 {
+    width: 43%;
+    /*height: 100%;*/
+    height: 470px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    color: #FAFFFC;
+    position: fixed;
+    overflow-y: auto;
+}
+
+.methodologyInfo2::-webkit-scrollbar {
+    width: 1px;
+    background-color: #ddd;
+}
+
+.methodologyInfo2::-webkit-scrollbar-thumb {
+    background-color: #444;
+}
+
+
+.methodologyButton {
+    width: 100%;
+    max-height: 77px;
+    height: 20%;
+    position: absolute;
+    bottom: 15px;
+    display: flex;
+    align-items: center;
+
+}
+
+.methodologyButton2 {
+    width: 100%;
+    max-height: 77px;
+    height: 20%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.readMethodologyButton {
+    width: 190px;
+    height: 40px;
+    margin-left: 30px;
+    /*margin-top: 10px;*/
+
+    background: #FFFFFF;
+    border-radius: 6px;
+    border: 1px solid white;
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 40px;
+    letter-spacing: 0.0016em;
+    color: #0D1118;
+    cursor: pointer;
+}
+
+/*.createMethodologyContainer {*/
+/*    width: 100%;*/
+/*    height: 90%;*/
+/*    background: #0D1118;*/
+/*    border: 1px solid #FFFFFF;*/
+/*    box-sizing: border-box;*/
+/*    border-radius: 21px;*/
+/*    !*position: relative;*!*/
+/*}*/
+
+/*.closeMethodology {*/
+/*    position: absolute;*/
+/*    right: 15px;*/
+/*    top: 15px;*/
+/*    font-size: 25px;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.addMethodologyInputTitle {*/
+/*    width: 645px;*/
+/*    height: 56px;*/
+/*    margin: 25px 0 40px 44px;*/
+/*}*/
+
+.methodologyInputTitle {
+    width: 100%;
+    height: 80%;
+    background: #0D1118;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding-left: 20px;
+
+    font-family: Gilroy;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #FAFFFC;
+}
+
+.methodologyInputTitle2 {
+    width: 100%;
+    height: 40px;
+    background: #0D1118;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding-left: 20px;
+
+    font-family: Gilroy;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #FAFFFC;
+}
+
+.methodologyInputTitle::placeholder {
+    color: #FAFFFC;
+}
+
+.methodologyInputTitle:focus {
+    outline: none;
+}
+
+.methodologyInputTitle2::placeholder {
+    color: #FAFFFC;
+}
+
+.methodologyInputTitle2:focus {
+    outline: none;
+}
+
+/*.methodologyTextArea {*/
+/*    width: 91%;*/
+/*    height: 70%;*/
+/*    !*margin-left: 31px;*!*/
+/*    margin: 0 auto;*/
+
+/*    border-radius: 10px;*/
+/*}*/
+
+.methodologyTextAreaWrapper {
+    width: 100%;
+    height: 100%;
+    padding: 10px 0 0 10px;
+    font-family: Gilroy;
+    font-weight: 400;
+    background: #0D1118;
+    font-style: normal;
+    font-size: 16px;
+    border-radius: 10px;
+    color: #FAFFFC;
+}
+
+.methodologyTextAreaWrapper::placeholder {
+    color: #FAFFFC;
+}
+
+.methodologyTextAreaWrapper:focus {
+    outline: none;
+}
+
+.btn {
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.addMethodologyButton {
+    width: 190px;
+    height: 40px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    border: 1px solid white;
+    /*margin-left: 22px;*/
+
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 16px;
+    color: #0D1118
+}
+
+.addMethodologyButton2 {
+    width: 150px;
+    height: 40px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    border: 1px solid white;
+    /*margin-left: 22px;*/
+
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 16px;
+    color: #0D1118
+}
+
+.redMethodology {
+    width: 70%;
+    height: 100%;
+}
+
+.methodologyInputLesson::placeholder {
+    color: #FAFFFC;
+}
+
+.methodologyInputLesson {
+    width: 346px;
+    height: 56px;
+    position: absolute;
+    right: 70px;
+    top: 25px;
+    background: #0D1118;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding-left: 20px;
+
+    font-family: Gilroy;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #FAFFFC;
+}
+
+/*=============================*/
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 25px;
+    cursor: pointer;
+    color: red;
+}
+
+.text {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+
+    flex-direction: column;
+}
+
+.addImage {
+    width: 100%;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 3px;
+}
+
+.methodologyDescription1 {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.description {
+    width: 100%;
+    margin-bottom: 20px;
+
+}
+
+.descriptionText {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.imTestContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imTest {
+    width: 50%;
+    height: 300px;
+}
+@media screen and (max-width: 600px) {
+    .methodologyWrapper2{
+        width: 97%;
+    }
+    .methodologyInfo2{
+        width: 80%;
+    }
+    .imTest{
+        width: 70%;
+    }
+    .methodologyInfo2{
+        height: 450px;
+    }
+}

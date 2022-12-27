@@ -1,0 +1,18 @@
+.changeLanguageContainer {
+  position: relative;
+}
+.spanText {
+  font-family: Gilroy;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 18px;
+  color: #ffffff;
+  margin-right: 10px;
+}
+.spanText2 {
+  font-family: Gilroy;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 18px;
+  margin-left: 10px;
+}

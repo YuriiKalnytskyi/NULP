@@ -1,0 +1,475 @@
+.paymentContainer {
+    position: relative;
+    width: 493px;
+    height: 251px;
+    background: #FFFFFF;
+}
+
+.textPayment {
+    margin: 0 auto;
+    width: 90%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Gilroy;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #1E1E1E;
+}
+
+.paymentContainerBtn {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btnPayment {
+    width: 330px;
+    height: 60px;
+    background: #000000;
+    border-radius: 9px;
+    border: white;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    font-family: Gilroy;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+}
+
+.btnPayment:hover {
+    cursor: pointer;
+    background: silver;
+}
+
+.text {
+    font-family: Gilroy;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 29px;
+    text-align: center;
+    color: #1E1E1E;
+}
+
+.userInfoContainer {
+    width: 555px;
+    height: fit-content;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 37px;
+}
+
+.profileHeader {
+    margin-top: 5px;
+    width: 100%;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    color: #FFFFFF;
+    align-items: center;
+    flex-direction: column;
+}
+
+.imageInProfile {
+    margin-bottom: 5px;
+    width: 56px;
+    height: 56px;
+}
+
+.profileTitle {
+    font-size: 24px;
+    font-family: 'Gilroy';
+    font-weight: bold;
+}
+
+.profileInfo {
+    font-size: 16px;
+    font-family: Gilroy;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+.profileButton {
+    width: 100%;
+    height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.profileButtonContainer {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.profileButtonWrapper {
+    border-radius: 10px;
+    border: 1px solid #FFFFFF;
+    width: 321px;
+    height: 40px;
+    background: #FFFFFF;
+    font-size: 18px;
+    font-family: Gilroy;
+    font-weight: 400;
+    color: #000000;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.profileButtonWrapperTwo {
+    width: 321px;
+    height: 40px;
+    font-size: 18px;
+    border: 1px solid red;
+    font-family: Gilroy;
+    font-weight: 700;
+    border-radius: 10px;
+    background: #FF0000;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.updateContainer {
+    width: 80%;
+    height: 100%;
+}
+.updateContainer2 {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 25px;
+    cursor: pointer;
+    color: red;
+}
+
+.updateText{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.updateBtnContainer{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.updateBtn {
+    width: 70%;
+    height: 70%;
+    cursor: pointer;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    background: black;
+    color: #ffffff;
+
+    font-family: Gilroy-Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 76.3%;
+}
+.updateBtnDisable {
+    width: 70%;
+    height: 70%;
+    cursor: pointer;
+    background: silver;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    color: #ffffff;
+    font-family: Gilroy-Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 76.3%;
+}
+.updateBtn:hover {
+    background: #8b3131;
+}
+
+.updateUserContainer {
+    width: 400px;
+    height: 300px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.updateTitle {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    font-family: Gilroy;
+    font-weight: Bold;
+    font-size: 26px;
+    justify-content: center;
+    align-items: center;
+}
+
+.updateText{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    font-family: Gilroy;
+    font-weight: 500;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.updateInputContainer{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.updateInputContainer2{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 10%;
+}
+.updateInput {
+    margin-bottom: 4px;
+    border: none;
+    border-bottom: 2px dashed #000000;
+    background: none;
+    font-family: Gilroy;
+    font-weight: 500;
+    font-size: 20px;
+    color: #000000;
+}
+.updateInput:focus {
+    outline: none;
+}
+
+.castomSelect{
+    width: 50%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    margin-top: 10%;
+}
+.castomSelect2{
+    width: 50%;
+    height: 10%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.castomSelectText{
+    width: fit-content;
+    height: 100%;
+    font-family: Gilroy;
+    font-weight: 900;
+    font-size: 26px;
+    color: #ffffff;
+}
+.castomSelectArrow{
+    margin-left: 10px;
+    margin-top: 3px;
+}
+.castomSelectInput{
+    position: absolute;
+    width: 200px;
+    z-index: 3;
+    top: 70px;
+    right: 0px;
+    height: 200px;
+}
+.castomSelectInput2{
+    position: absolute;
+    width: 200px;
+    z-index: 3;
+    /*top: 70px;*/
+    right: -100px;
+    height: 200px;
+}
+
+.castomSelectBbox {
+    position: relative;
+    display: flex;
+    width: 150px;
+    flex-direction: column;
+}
+
+.castomSelectBbox .optionsContainer {
+    background: #000000;
+    color: #f5f6fa;
+    max-height: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.4s;
+    border-radius: 8px;
+    overflow: hidden;
+    order: 1;
+}
+
+.castomSelectBbox .optionsContainer.active {
+    max-height: 240px;
+    opacity: 1;
+    overflow-y: scroll;
+}
+
+.castomSelectBbox .optionsContainer::-webkit-scrollbar {
+    width: 8px;
+    background: #000000;
+    border-radius: 0 8px 8px 0;
+}
+
+.castomSelectBbox .optionsContainer::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    border-radius: 0 8px 8px 0;
+}
+
+.castomSelectBbox .option,
+.selected {
+    padding: 12px 24px;
+    cursor: pointer;
+    font-family: Gilroy;
+    font-weight: bold;
+}
+
+.castomSelectBbox .option:hover {
+    background: #414b57;
+}
+
+.castomSelectBbox label {
+    cursor: pointer;
+}
+
+.castomSelectBbox .option .radio {
+    display: none;
+}
+
+
+.inputChangeContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+.changeInput{
+    width: 74%;
+    height: 40px;
+    border-radius: 15px;
+    padding: 10px;
+}
+.changeInput::placeholder {
+    color: #c5c5c5;
+}
+
+.changeInput:focus {
+    outline: none;
+}
+.inputError3 {
+    width: 90%;
+    padding-left: 100px;
+    font-family: Gilroy;
+    font-weight: 300;
+    font-size: 10px;
+    line-height: 13px;
+    color: #ff5353;
+}
+.successMessage{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Gilroy;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 13px;
+    color: #FFFFFF;
+}
+.textarea {
+    width: 70%;
+    height: 40%;
+    padding: 10px 0 0 10px;
+    font-family: Gilroy;
+    font-weight: 400;
+    background: #0D1118;
+    font-style: normal;
+    font-size: 16px;
+    border-radius: 10px;
+    color: #FAFFFC;
+    margin-bottom: 20px;
+}
+
+.textarea::placeholder {
+    color: #FAFFFC;
+}
+.textarea:focus {
+    outline: none;
+}
+
+.closePay {
+    position: absolute;
+    top: 2%;
+    right: 3%;
+
+    font-family: Gilroy;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 20px;
+}
+@media screen and (max-width: 600px) {
+    .userInfoContainer{
+        width: 100%;
+        max-width: 300px;
+        min-width: 300px;
+    }
+    .profileButtonWrapper{
+        width: 90%;
+    }
+    .profileButtonWrapperTwo{
+        width: 90%;
+    }
+    .changeInput{
+        width: 90%;
+    }
+}
+
+
+
+
