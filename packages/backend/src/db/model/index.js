@@ -1,21 +1,10 @@
+const Sequelize = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize(
-  process.env.DB_NAME,
-  process.env.DB_USERNAME,
-  process.env.DB_PASSWORD,
+const db = require('../../app/helpers/db')
 
-  {
-    dialect: process.env.DB_DIALECT,
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    seederStorage: 'sequelize',
-    operatorsAliases: 0,
-    logging: console.log
-  }
-);
+const sequelize = new Sequelize(db);
 
 const dirname = path.join(process.cwd(), 'src', 'db', 'model') + '/';
 

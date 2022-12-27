@@ -4,6 +4,9 @@ module.exports = {
   doom: require('./doom.helper'),
   validator: require('./validator.helper'),
   general: require('./general.helper'),
+  controller: require('./controller.helper'),
+  token: require('./token.helper'),
+  mailer: require('./mailer.helper'),
 
   middlewares: {
     auth: require('../middlewares/auth.handler'),

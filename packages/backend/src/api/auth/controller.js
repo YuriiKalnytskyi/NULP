@@ -1,30 +1,55 @@
-// const { controller } = require('../../app/helpers/helper');
-const models = require('../../db/model/index');
+const { StatusCodes } = require('http-status-codes');
+
+const { controller } = require('../../app/helpers/helper');
+const service = require('./service');
 
 const registration = {
   post: async (req, res) => {
-    await models.Users.create({
-      ...req.options
-    });
-
-    return res.status(200).json('ok');
+    await controller.sendJson(res, async (connection)=> {
+      return await service.registration.post(connection, req.options);
+    }, StatusCodes.CREATED)
   }
 };
 
 const login = {
   post: async (req, res) => {
-
-    return res.status(200).json('err');
+    await controller.sendJson(res, async (connection)=> {
+      return await service.login.post(connection, req.options);
+    })
   }
 };
 
-const logout = {};
+const logout = {
+  post: async (req, res) => {
+    await controller.sendJson(res, async (connection) => {
+      return await service.logout.post(connection, req.user);
+    });
+  }
+};
 
-const forgotPassword = {};
+const forgotPassword = {
+  post: async (req, res) => {
+    await controller.sendJson(res, async (connection) => {
+      return await service.forgotPassword.post(connection, req.options);
+    });
+  }
+};
 
-const verifyCode = {};
+const verifyCode = {
+  post: async (req, res) => {
+    await controller.sendJson(res, async (connection) => {
+      return await service.verifyCode.post(connection, req.options);
+    });
+  }
+};
 
-const updatePassword = {};
+const updatePassword = {
+  put: async (req, res) => {
+    await controller.sendJson(res, async (connection) => {
+      return await service.changePassword.put(connection, req.options);
+    });
+  }
+};
 
 module.exports = {
   registration,

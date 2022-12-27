@@ -10,7 +10,14 @@ module.exports = class Users extends Sequelize.Model {
           allowNull: false
         },
         firstName: DataTypes.STRING,
-        lastName: DataTypes.STRING
+        lastName: DataTypes.STRING,
+          password: Sequelize.STRING,
+          accessToken: Sequelize.TEXT,
+          role: {
+              type: Sequelize.ENUM('USER', 'ADMIN', 'TEACHER'),
+              allowNull: false,
+              defaultValue: 'USER',
+          },
       },
       {
         sequelize,

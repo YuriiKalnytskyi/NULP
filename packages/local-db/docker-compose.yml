@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  database-taboo:
+  database-nulp:
     image: 'postgres'
     environment:
       POSTGRES_USER: unicorn_user
