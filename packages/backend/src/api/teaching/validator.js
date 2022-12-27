@@ -1,24 +1,26 @@
-const Joi = require('joi');
+const Joi = require("joi");
 
 const schemas = {
-    router: {
-        changePassword: {
-            put: Joi.object().keys({
-                oldPassword: Joi.string().required(),
-                newPassword: Joi.string().required(),
-                repeatNewPassword: Joi.string().required(),
-            }).required(),
-        },
-
-        deleteAccount: {
-            post: Joi.object().keys({
-                password: Joi.string().required(),
-            }).required(),
-        },
-
+  router: {
+    addTeaching: {
+      put: Joi.object().keys({
+        title: Joi.string().required(),
+        lesson: Joi.string().required(),
+        text: Joi.string().optional(),
+        link: Joi.string().optional(),
+        images: Joi.optional(),
+      }).required()
     },
+
+    deleteTeaching: {
+      delete: Joi.object().keys({
+        teachingId: Joi.number().required()
+      }).required()
+    }
+
+  }
 };
 
 module.exports = {
-    schemas,
+  schemas
 };

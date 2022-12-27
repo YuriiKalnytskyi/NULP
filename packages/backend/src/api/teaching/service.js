@@ -1,68 +1,57 @@
-const helper = require('../../app/helpers/helper');
-const bcrypt = require('bcryptjs');
+const converter = require("./converter");
 
-const getProfileInfo = {
-    get: async (connection, userId) => {
 
-        const user = await connection.Users.findOne({where: { id : userId}});
+const getTeaching = {
+  get: async (connection) => {
 
-        return {
-            'success': true,
-            'result': user,
-        }
-    }
+    const teachings = await connection.Teachings.findAll();
+
+    return {
+      "success": true,
+      "result": {
+        teachings: teachings
+      }
+    };
+  }
 };
 
-const changePassword = {
-    put: async (connection, options, userId) => {
-        const user = await connection.Users.findOne({where: { id : userId}});
+const addTeaching = {
+  put: async (connection, req) => {
+    let text = await converter.teaching.post.text(req.body);
+    let images = await converter.teaching.post.images(req.files);
+    let links = await converter.teaching.post.links(req.body);
 
-        let incorrectPassword = bcrypt.compareSync(options.oldPassword, user.password);
-        if (!incorrectPassword) {
-            return helper.doom.error.passwordNotConcur()
-        }
+    await connection.Teachings.create({
+      title: req.body.title,
+      lesson: req.body.lesson,
+      description: { text, images, links }
+    });
 
-        if (options.newPassword !== options.repeatNewPassword) {
-            return helper.doom.error.passwordNotConcur();
-        }
-
-        const newPassword = bcrypt.hashSync(options.newPassword, 10);
-
-        await connection.Users.update({password: newPassword},{
-            where: { id: userId}
-        })
-
-        return {
-            'success': true,
-            'result': {
-                result: 'Password changed successfully'
-            },
-        }
-    }
+    return {
+      "success": true,
+      "result": {
+        "message": "Teaching successfully created"
+      }
+    };
+  }
 };
 
-const deleteAccount = {
-    delete: async (connection, options, userId) => {
-        const user = await connection.Users.findOne({where: { id : userId}});
+const deleteTeaching = {
+  delete: async (connection, options) => {
 
-        let incorrectPassword = bcrypt.compareSync(options.password, user.password);
-        if (!incorrectPassword) {
-            return helper.doom.error.passwordNotConcur()
-        }
+    await connection.Teachings.destroy({ where: { id: options.teachingId } });
 
-        await connection.Users.destroy({where: { id : userId}});
-
-        return {
-            'success': true,
-            'result': {
-                result: 'Account was successfully deleted',
-            },
-        }
-    }
+    return {
+      "success": true,
+      "result": {
+        result: "Teaching was successfully deleted"
+      }
+    };
+  }
 };
 
 module.exports = {
-    changePassword,
-    getProfileInfo,
-    deleteAccount,
+  getTeaching,
+  addTeaching,
+  deleteTeaching
 };
