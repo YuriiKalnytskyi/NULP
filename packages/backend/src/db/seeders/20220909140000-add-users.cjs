@@ -6,9 +6,12 @@ module.exports = {
       'Users',
       [
         {
-          email: 'admin',
+          email: 'admin.nulp.@lpnu.ua',
           firstName: 'admin',
           lastName: 'admin',
+          password: bcrypt.hashSync('admin', 10),
+          accessToken: '',
+          role: 'ADMIN',
         },
       ]
     );

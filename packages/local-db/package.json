@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start:local": "docker-compose up"
+    "start:local": "docker-compose up -d"
   }
 }
