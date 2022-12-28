@@ -9,7 +9,8 @@ module.exports = {
       },
       title: Sequelize.STRING,
       lesson: Sequelize.STRING,
-      description: Sequelize.JSONB,
+      subject: Sequelize.STRING,
+      description: Sequelize.JSONB
     }),
   down: (queryInterface) => queryInterface.dropTable('Teachings'),
 };

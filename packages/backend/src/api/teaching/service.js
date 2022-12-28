@@ -24,6 +24,7 @@ const addTeaching = {
     await connection.Teachings.create({
       title: req.body.title,
       lesson: req.body.lesson,
+      subject: req.body.subject,
       description: { text, images, links }
     });
 

@@ -26,8 +26,6 @@ const Naw = ({ naw, setNaw, componentState, setComponentState }) => {
 
 
     const component = [
-        { name: t("Home"), img: homeImg },
-        { name: t("Signals"), img: signalImg },
         { name: t("News"), img: newsImg },
         { name: t("Teaching"), img: teachingImd }
     ]

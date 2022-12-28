@@ -4,12 +4,7 @@ import logoimg from "../../images/logoImage.png";
 import { useTranslation } from "react-i18next";
 import CloseIcon from "@material-ui/icons/Close";
 import ChangePassword from "./component/ChangePassword";
-import ChangeEmail from "./component/ChangeEmail";
-import ChangeNumber from "./component/ChangeNumber";
-import Change from "./component/Change";
 import Notification from "./component/Notification";
-import AddAll from "./component/AddAll";
-import AddOne from "./component/AddOne";
 import ButtonContainer from "./component/ButtonContainer";
 import { getProfileInfoServer } from "../../services/userServise";
 
@@ -74,7 +69,6 @@ const UserInfo = ({ open, setOpen, socket}) => {
             <img className={"imageInProfile"} src={logoimg} alt="logoimg" />
             <div className={"profileTitle"}>{profileData.firstName} {profileData.lastName}</div>
             <div className={"profileInfo"}>{profileData.email}</div>
-            <div className={"profileInfo"}>{t("TextChange")} {profileData.accountNumber}</div>
           </div>
 
           <div className={"profileButton"}>
@@ -102,33 +96,6 @@ const UserInfo = ({ open, setOpen, socket}) => {
             }
 
             {
-              component === "changeEmail" && <div className={"profileButtonContainer"}>
-                <ChangeEmail
-                  setSuccess={setSuccess}
-                  updateProfile={updateProfile}
-                  setUpdateProfile={setUpdateProfile}
-                  changeComponent={changeComponent}
-                />
-              </div>
-            }
-            {
-              component === "changeNumber" && <div className={"profileButtonContainer"}>
-                <ChangeNumber
-                  changeComponent={changeComponent}
-                  setUpdateProfile={setUpdateProfile}
-                  updateProfile={updateProfile}
-                  setSuccess={setSuccess}
-                />
-              </div>
-            }
-            {
-              component === "change" && <div className={"profileButtonContainer"}>
-                <Change
-                  changeComponent={changeComponent}
-                />
-              </div>
-            }
-            {
               component === "notification" && <div className={"profileButtonContainer"}>
                 <Notification
                   changeComponent={changeComponent}
@@ -138,20 +105,7 @@ const UserInfo = ({ open, setOpen, socket}) => {
               </div>
             }
 
-            {
-              component === "addAll" && <div className={"profileButtonContainer"}>
-                <AddAll changeComponent={changeComponent} />
-              </div>
-            }
 
-            {
-              component === "addOne" && <div className={"profileButtonContainer"}>
-                <AddOne
-                  changeComponent={changeComponent}
-                  setSuccess={setSuccess}
-                />
-              </div>
-            }
           </div>
         </div>
       </Dialog>

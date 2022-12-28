@@ -1,12 +1,10 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import "./Main.css";
-import { getAllNewsServer, getAllSignalServer, getAllTeachingServer } from "../services/services";
 import io from "socket.io-client";
 import Naw from "./Naw/Naw";
 import Header from "./Header/Header";
 import UserInfo from "./pop-ap/UserInfo";
-import Signal from "./signalComponent/Signal";
 import News from "./News/News";
 import CreateNews from "./News/CreateNews";
 import Teaching from "./Teaching/Teaching";
@@ -29,94 +27,39 @@ const Main = () => {
 
   const [updateFlag, setUpdateFlag] = useState("");
   const [addNotificationFlag, setAddNotificationFlag] = useState("");
-  const [addTeachingFlag, setAddTeachingFlag] = useState("");
-  const [addNewsFlag, setAddNewsFlag] = useState("");
 
-  const [allSignal, setAllSignal] = useState([]);
-  const limit = 50;
-  const parentRef = useRef();
-  const childRef = useRef();
+  const [openTeaching, setOpenTeaching] = useState(false)
 
 
-  const [allNews, setAllNews] = useState([]);
-  const [allTeaching, setAllTeaching] = useState([]);
+
 
 
   const [openUserInfo, setOpenUserInfo] = useState(false);
-  const [openNews, setOpenNews] = useState(false);
-  const [openTeaching, setOpenTeaching] = useState(false);
 
 
   const [loader, setLoader] = useState(false);
 
-
-  const getSignal = async () => {
-    const data = await getAllSignalServer(1, limit);
-    if (data?.errorCode === 112) {
-      auth.logout();
-    }
-
-    setAllSignal(data.signals);
-  };
-
-  const getAllNews = async () => {
-    const getAllNewsData = await getAllNewsServer();
-    setAllNews(getAllNewsData);
-    setLoader(false);
-  };
-  const getAllTeaching = async () => {
-    const getAllTeachingData = await getAllTeachingServer();
-    setAllTeaching(getAllTeachingData);
-    setLoader(false);
-  };
-
-
-  // const getSignalScroll = async (page, limit) => {
-  //
-  //   if (allSignal.length <= totalCount){
-  //     const data = await getAllSignalServer(page, limit);
-  //     if (data?.errorCode === 112){
-  //       auth.logout();
-  //     }
-  //     setAllSignal(prev => [...prev, ...data.signals]);
-  //     setPage(prev => prev+ 1)
-  //   }
-  //
-  // };
-  // useScroll(parentRef, childRef, ()=> getSignalScroll(page, limit), totalCount, allSignal.length)
-
+  console.log(process.env.REACT_APP_API_URL)
 
   useEffect(() => {
-        socket = io('https://ukrtrader-back.herokuapp.com/', {
-            transports: ['websocket', 'polling'], // use WebSocket first, if available
+
+
+    socket = io(process.env.REACT_APP_API_URL, {
+      transports: ['websocket', 'polling'], // use WebSocket first, if available
     });
+
 
     socket.on("connect", () => console.log(`Client connected: ${socket.id}`));
 
-    socket.on("getSignal", (data) => {
+    socket.on("connection", (data) => {
       setTimeout(() => {
         setUpdateFlag(data.user);
       }, 1500);
     });
-    socket.on("getTeaching", (data) => {
-      setTimeout(() => {
-        setAddTeachingFlag(data.user);
-      }, 1500);
-    });
-    socket.on("getNews", (data) => {
-      setTimeout(() => {
-        console.log("00d00000000000");
-        setAddNewsFlag(data.user);
-      }, 1500);
-    });
-    socket.on("getNotification", (data) => {
-      setAddNotificationFlag(data.user);
-    });
+
   }, []);
 
 
-
-  // useRequest("getAllTeaching", getAllTeaching, [addTeachingFlag], setLoader);
 
   if (loader) {
     return <PreReloader />;
@@ -163,76 +106,23 @@ const Main = () => {
 
           <div className={window.innerWidth > 600 ? "infoContainer": "infoContainer2"}>
             <div className={"homeContainer"}>
-              {componentState === t("Home") &&
-              <div style={{height: '100%'}}>
-                <Signal
-                  socket={socket}
-                  allSignal={allSignal}
-                  naw={naw} componentState={componentState}
-                  parentRef={parentRef}
-                  childRef={childRef}
-                />
-                <div className={'news'}>
-                  <div style={window.innerWidth > 600 ? {height: "34.5%"}: {height: "30.5%", width: "100%"}} className={'newsScrol'}>
-                    {
-                      allNews.map((news, index) =>
-                        <div key={index} className={"NewsWrapper4"}
-                             style={window.innerWidth > 600 ? { width: "550px" } : { width: "94%" }}>
-                          <div className={"newsTime"}>
-                            {news.date.split("T")[0].split("-").join(".")}
-                            <span style={{ marginLeft: "7px" }}>
-                  {news.date.split("T")[1].split(":")[0]}:
-                              {news.date.split("T")[1].split(":")[1]}
-                </span>
 
-                          </div>
-                          <div className={"newsTitle"}>{news.title}</div>
-                          <div className={"newsInfo"}>
-                            {
-                               news.description.substr(0, 200)
-                            }
-                            ...
-                          </div>
-                          <div className={"newsButton"}>
-                            <button onClick={() => {
-                              setComponentState(t('News'))
-                            }}
-                                    className={"readNewsButton"}>{t("Text")}
-                            </button>
-                          </div>
-                        </div>)
-                    }
-                  </div>
+              {/*{*/}
+              {/*  componentState === t("News") && <div style={{height: '100%'}}>*/}
+              {/*    {!openNews && <News allNews={allNews}*/}
+              {/*                        setOpen={setOpenNews}*/}
+              {/*                        socket={socket}*/}
+              {/*    />}*/}
+              {/*    {*/}
+              {/*      openNews && <CreateNews open={openNews} setOpen={setOpenNews} socket={socket} />*/}
+              {/*    }*/}
 
-                </div>
-              </div>
-
-              }
-
-              {componentState === t("Signals") &&  <Signal
-                socket={socket}
-                allSignal={allSignal} naw={naw}
-                componentState={componentState}
-                parentRef={parentRef}
-                childRef={childRef}
-              />
-              }
-              {
-                componentState === t("News") && <div style={{height: '100%'}}>
-                  {!openNews && <News allNews={allNews}
-                                      setOpen={setOpenNews}
-                                      socket={socket}
-                  />}
-                  {
-                    openNews && <CreateNews open={openNews} setOpen={setOpenNews} socket={socket} />
-                  }
-
-                </div>
-              }
+              {/*  </div>*/}
+              {/*}*/}
               {
                 componentState === t("Teaching") && <div style={{height: '100%'}}>
                   {!openTeaching && <Teaching
-                    allTeaching={allTeaching}
+                    allTeaching={[]}
                     setOpen={setOpenTeaching}
                     socket={socket}
 

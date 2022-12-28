@@ -1,4 +1,5 @@
 const { writeFile } = require("../../../utils/fileUploader");
+const helper = require('../../app/helpers/helper');
 
 const teaching = {
   post: {
@@ -25,8 +26,14 @@ const teaching = {
         const images = [];
         for (const fileKey in files) {
           const oneFile = files[fileKey];
-          const path = await writeFile(oneFile, "teachingPhotos");
-          images.push({ [fileKey]: path });
+          // const path = await writeFile(oneFile, "teachingPhotos");
+          console.log('----')
+
+          const cloudImageUrl = await helper.cloudinary.uploadFile(oneFile)
+          console.log('----')
+          let url = cloudImageUrl.url.split('://');
+          let res = 'https://' + url[1];
+          images.push({ [fileKey]: res });
         }
         return images;
       } else {

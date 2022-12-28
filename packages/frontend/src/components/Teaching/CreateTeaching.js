@@ -41,6 +41,9 @@ const CreateTeaching = ({ open, setOpen, socket }) => {
   const number = useInput("", {
     isEmpty: true
   });
+  const subject = useInput("", {
+    isEmpty: true
+  });
 
 
   const addText = () => {
@@ -107,24 +110,25 @@ const CreateTeaching = ({ open, setOpen, socket }) => {
 
     formData.append("lesson", number.value);
     formData.append("title", title.value);
+    formData.append("subject", subject.value);
 
     setOpen(false);
 
 
    const a = await addTeachingServer(formData);
 
-    console.log(a);
+    console.log('=======',a);
 
     socket.emit("teaching");
   };
 
   useEffect(() => {
-    if (!title.inputValid || !number.inputValid) {
+    if (!title.inputValid || !number.inputValid || !subject.inputValid) {
       setDisabledBtn(false);
     } else {
       setDisabledBtn(true);
     }
-  }, [title.inputValid, number.inputValid]);
+  }, [title.inputValid, number.inputValid, subject.inputValid]);
 
 
 
@@ -228,6 +232,24 @@ const CreateTeaching = ({ open, setOpen, socket }) => {
           onBlur={(e) => number.onBlur(e)}
         />
       </div>
+
+      <input className={"InputTitle"}
+             type="text"
+             placeholder={"Предмет"}
+             style={
+               subject.isDirty && subject.flag
+                   ? {
+                     border: "1px solid #FF0000",
+                     width: '93%', margin: '0 auto'
+                   }
+                   : { border: "1px solid silver", width: '93%', margin: '0 auto' }
+             }
+             value={subject.value}
+             onChange={(e) => {
+               subject.onChange(e);
+             }}
+             onBlur={(e) => subject.onBlur(e)}
+      />
 
       <div className={"scrollCreate"}>
         <div className={"TextArea"}>

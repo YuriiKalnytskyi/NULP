@@ -11,8 +11,6 @@ function App() {
 
   const classes = useStyles();
 
-  const a  = 'test'
-  
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {

@@ -12,7 +12,7 @@ router.get('/',
 
 router.post('/add/newTeaching',
     // asyncHandler(middlewares.auth.user),
-    validator.main(schemas.router.addTeaching.put),
+    // validator.main(schemas.router.addTeaching.put),
     asyncHandler(controller.addTeaching.put),
 );
 

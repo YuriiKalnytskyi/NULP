@@ -1,29 +1,11 @@
 import axios from 'axios';
 
 const options = {
-  baseURL: 'http://localhost:4200',
+  baseURL: process.env.REACT_APP_API_URL,
 };
 const axiosInstance = axios.create(options);
 
 export default axiosInstance
-
-// ================= signal =========================
-
-export const getAllSignalServer = async (page =1, limit=5) => {
-  try {
-    const token = localStorage.getItem('accessToken');
-    const response = await axiosInstance.get(`/clubData/signals?page=${page}&limit=${limit}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    return response.data;
-  } catch (e) {
-    console.log(e);
-    // alert(JSON.stringify(e.response?.data, null, 2));
-    return e.response.data;
-  }
-};
 
 // ================= news =========================
 
@@ -47,7 +29,7 @@ export const getAllNewsServer = async () => {
 export const getAllTeachingServer = async () => {
   try {
     const token = localStorage.getItem('accessToken');
-    const response = await axiosInstance.get('/clubData/teaching', {
+    const response = await axiosInstance.get('/teaching/', {
       headers: {
         Authorization: `Bearer ${token}`,
       },

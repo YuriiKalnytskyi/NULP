@@ -1,4 +1,3 @@
-
 import axiosInstance from "./services";
 
 export const registerServer = async (data) => {
@@ -53,7 +52,6 @@ export const forgotPasswordStep2Server = async (code) => {
     return response.data;
   } catch (e) {
 
-    // alert(JSON.stringify(e.response?.data?.message, null, 2));
     return e.response.data
   }
 };

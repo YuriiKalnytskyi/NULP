@@ -8,7 +8,7 @@ const getProfileInfo = {
 
         return {
             'success': true,
-            'result': user,
+            'result': user.dataValues,
         }
     }
 };
@@ -17,7 +17,7 @@ const changePassword = {
     put: async (connection, options, userId) => {
         const user = await connection.Users.findOne({where: { id : userId}});
 
-        let incorrectPassword = bcrypt.compareSync(options.oldPassword, user.password);
+        let incorrectPassword = bcrypt.compareSync(options.oldPassword, user.dataValues.password);
         if (!incorrectPassword) {
             return helper.doom.error.passwordNotConcur()
         }
