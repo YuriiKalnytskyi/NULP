@@ -4,9 +4,9 @@
   "main": "server.js",
   "license": "ISC",
   "scripts": {
-    "check-env_and_start": "env-cmd -f .env.${ENV} node ./check-env.js && env-cmd -f .env.${ENV} nodemon server.js",
+    "check-env_and_start": "env-cmd -f .env.local node ./check-env.js && env-cmd -f .env.local nodemon server.js",
     "start": "ENV=local npm run check-env_and_start",
-    "start:local": "ENV=local npm run check-env_and_start",
+    "start:local": "npm run check-env_and_start",
     "db:create": "env-cmd -f .env.local npx sequelize db:create",
     "db:migrate": "npx sequelize db:migrate",
     "db:seed": "npx sequelize db:seed:all",
