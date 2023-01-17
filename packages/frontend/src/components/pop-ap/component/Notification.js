@@ -1,18 +1,16 @@
-import arrow2 from "../../../images/Polygon.png";
-import arrow from "../../../images/Polygon 4.png";
-import { useInput } from "../../../hooks/useInput";
-import { useTranslation } from "react-i18next";
-import { useEffect, useState } from "react";
-import { addNotificationServer } from "../../../services/adminServise";
-
+import arrow2 from '../../../images/Polygon.png';
+import arrow from '../../../images/Polygon 4.png';
+import { useInput } from '../../../hooks/useInput';
+import { useTranslation } from 'react-i18next';
+import { useEffect, useState } from 'react';
+import { addNotificationServer } from '../../../services/adminServise';
 
 const Notification = ({ changeComponent, socket, setSuccess }) => {
   const { t } = useTranslation();
 
   const [disabledSendNotifi, setDisabledSendNotifi] = useState(false);
   const [arrowFlag2, setArrowFlag2] = useState(false);
-  const [country, setСountry] = useState("Виберіть Країну");
-
+  const [country, setСountry] = useState('Виберіть Країну');
 
   const countryArr = [
     'Ukraine',
@@ -27,7 +25,7 @@ const Notification = ({ changeComponent, socket, setSuccess }) => {
     'United Kingdom',
     'Romania',
     'Belarus',
-    'Kazakhstan',
+    'Kazakhstan'
   ];
 
   const radioChange = (e) => {
@@ -35,29 +33,28 @@ const Notification = ({ changeComponent, socket, setSuccess }) => {
     setArrowFlag2(false);
   };
 
-  const textarea = useInput("", { isEmpty: true, minLength: 3 });
+  const textarea = useInput('', { isEmpty: true, minLength: 3 });
 
   const sendNotification = async () => {
     const sendNotificationData = await addNotificationServer({
-      "country": country,
-      "description": textarea.value
+      country: country,
+      description: textarea.value
     });
-    socket.emit("notification");
+    socket.emit('notification');
 
     if (sendNotificationData.signal) {
       setSuccess((prev) => {
         prev.flag = true;
-        prev.message = "Сповіщення успішно надіслано";
+        prev.message = 'Сповіщення успішно надіслано';
         return { ...prev };
       });
       textarea.setInputValid();
-      setСountry("Виберіть Країну");
+      setСountry('Виберіть Країну');
     }
-
   };
 
   useEffect(() => {
-    if (!textarea.inputValid || country === "Виберіть Країну") {
+    if (!textarea.inputValid || country === 'Виберіть Країну') {
       setDisabledSendNotifi(false);
     } else {
       setDisabledSendNotifi(true);
@@ -66,38 +63,45 @@ const Notification = ({ changeComponent, socket, setSuccess }) => {
 
   return (
     <>
-       <textarea
-         className={"textarea"}
-         placeholder={"Текст"} name="" id="" cols="20" rows="20"
-         value={textarea.value}
-         onChange={(e) => {
-           textarea.onChange(e);
-         }}
-         onBlur={(e) => textarea.onBlur(e)}
-         style={
-           textarea.isDirty && textarea.flag
-             ? { border: "1px solid #FF0000" }
-             : { border: "1px solid silver" }
-         }
-       />
+      <textarea
+        className={'textarea'}
+        placeholder={'Текст'}
+        name=""
+        id=""
+        cols="20"
+        rows="20"
+        value={textarea.value}
+        onChange={(e) => {
+          textarea.onChange(e);
+        }}
+        onBlur={(e) => textarea.onBlur(e)}
+        style={
+          textarea.isDirty && textarea.flag
+            ? { border: '1px solid #FF0000' }
+            : { border: '1px solid silver' }
+        }
+      />
 
-      <div className={"castomSelect2"}>
-        <div className={"statusSignal"} onClick={() => {
-          setArrowFlag2(!arrowFlag2);
-        }}>
+      <div className={'castomSelect2'}>
+        <div
+          className={'statusSignal'}
+          onClick={() => {
+            setArrowFlag2(!arrowFlag2);
+          }}
+        >
           {country}
         </div>
         <img
           onClick={() => {
             setArrowFlag2(!arrowFlag2);
           }}
-          className={"castomSelectArrow"}
+          className={'castomSelectArrow'}
           src={arrowFlag2 ? arrow2 : arrow}
-          alt={"test"}
+          alt={'test'}
         />
         {arrowFlag2 && (
-          <div className={"castomSelectInput2"}>
-            <div className={"castomSelectBbox"}>
+          <div className={'castomSelectInput2'}>
+            <div className={'castomSelectBbox'}>
               <div className="optionsContainer active">
                 {countryArr.map((value, index) => (
                   <div key={index} className="option">
@@ -117,14 +121,17 @@ const Notification = ({ changeComponent, socket, setSuccess }) => {
         )}
       </div>
 
-
-      <button onClick={sendNotification}
-              disabled={!disabledSendNotifi}
-              className={!disabledSendNotifi ? "profileButtonWrapper" : "profileButtonWrapperTwo"}> Надіслати
+      <button
+        onClick={sendNotification}
+        disabled={!disabledSendNotifi}
+        className={!disabledSendNotifi ? 'profileButtonWrapper' : 'profileButtonWrapperTwo'}
+      >
+        {' '}
+        Надіслати
       </button>
 
-      <button onClick={() => changeComponent("button")}
-              className={"profileButtonWrapper"}>{t("changeBtn")}
+      <button onClick={() => changeComponent('button')} className={'profileButtonWrapper'}>
+        {t('changeBtn')}
       </button>
     </>
   );

@@ -4,7 +4,7 @@ module.exports = class Notifications extends Sequelize.Model {
   static init(sequelize, DataTypes) {
     return super.init(
       {
-          description: DataTypes.TEXT
+        description: DataTypes.TEXT
       },
       {
         sequelize,

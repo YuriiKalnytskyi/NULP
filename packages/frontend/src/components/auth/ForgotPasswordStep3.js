@@ -7,8 +7,8 @@ import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import { useEffect, useState } from 'react';
 import { useInput } from '../../hooks/useInput';
 import noise from '../../images/noise.png';
-import {forgotPasswordStep3Server } from "../../services/authServise";
-import { useTranslation } from "react-i18next";
+import { forgotPasswordStep3Server } from '../../services/authServise';
+import { useTranslation } from 'react-i18next';
 
 const ForgotPasswordStep3 = () => {
   const { t } = useTranslation();
@@ -19,18 +19,18 @@ const ForgotPasswordStep3 = () => {
 
   const [data, setData] = useState({
     password: '',
-    repeatPassword: '',
+    repeatPassword: ''
   });
 
   const password = useInput('', {
     isEmpty: true,
     minLength: 3,
-    maxLength: 8,
+    maxLength: 8
   });
   const repeatPassword = useInput('', {
     isEmpty: true,
     minLength: 3,
-    maxLength: 8,
+    maxLength: 8
   });
 
   const isCoincidencePassword =
@@ -46,16 +46,12 @@ const ForgotPasswordStep3 = () => {
     await forgotPasswordStep3Server({
       email,
       password: data.password,
-      repeatPassword: data.repeatPassword,
+      repeatPassword: data.repeatPassword
     });
   };
 
   useEffect(() => {
-    if (
-      !password.inputValid ||
-      !repeatPassword.inputValid ||
-      !isCoincidencePassword
-    ) {
+    if (!password.inputValid || !repeatPassword.inputValid || !isCoincidencePassword) {
       setDisabledBtn(false);
     } else {
       setDisabledBtn(true);
@@ -98,7 +94,7 @@ const ForgotPasswordStep3 = () => {
                     width: '90%',
                     display: 'flex',
                     marginBottom: '10px',
-                    justifyContent: 'center',
+                    justifyContent: 'center'
                   }}
                 >
                   <input
@@ -136,17 +132,15 @@ const ForgotPasswordStep3 = () => {
                   <div className={'inputError'}>{repeatPassword.message}</div>
                 )}
 
-                {repeatPassword.isDirty &&
-                  !isCoincidencePassword &&
-                  !repeatPassword.flag && (
-                    <div className={'inputError'}>Паролі не співпадають</div>
-                  )}
+                {repeatPassword.isDirty && !isCoincidencePassword && !repeatPassword.flag && (
+                  <div className={'inputError'}>Паролі не співпадають</div>
+                )}
                 <div
                   style={{
                     position: 'relative',
                     width: '90%',
                     display: 'flex',
-                    justifyContent: 'center',
+                    justifyContent: 'center'
                   }}
                 >
                   <input

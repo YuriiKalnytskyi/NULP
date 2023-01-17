@@ -3,7 +3,7 @@ const http = require('http');
 const app = require('./app');
 const port = process.env.PORT || 4000;
 const server = http.createServer(app);
-const io = require("socket.io")(server);
+const io = require('socket.io')(server);
 const { v4: uuidv4 } = require('uuid');
 
 server.listen(port, () => {
@@ -11,9 +11,11 @@ server.listen(port, () => {
 });
 
 io.on('connection', (socket) => {
+  console.log(`---- Wss running on port [${socket}]----`);
+
   socket.on('addData', () => {
     io.sockets.emit('addData', {
-      user: uuidv4(),
+      user: uuidv4()
     });
-  })
-})
+  });
+});

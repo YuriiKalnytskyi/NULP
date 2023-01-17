@@ -7,12 +7,12 @@ import arrow from '../../images/arrow.svg';
 
 import { Button, List, ListItem, Popover } from '@material-ui/core';
 
-const ChangeLanguage = ({setComponentState}) => {
-  const { t ,i18n } = useTranslation();
+const ChangeLanguage = ({ setComponentState }) => {
+  const { t, i18n } = useTranslation();
 
   const languageMap = {
-    en: { label: 'English', img: enImg,  },
-    uk: { label: 'Українська', img: ukImg },
+    en: { label: 'English', img: enImg },
+    uk: { label: 'Українська', img: ukImg }
   };
 
   const [menuAnchor, setMenuAnchor] = useState(false);
@@ -20,10 +20,9 @@ const ChangeLanguage = ({setComponentState}) => {
   const changeLanguage = (item) => {
     i18n?.changeLanguage(item);
     setMenuAnchor(null);
-    if (setComponentState){
-      setComponentState(t('Home'))
+    if (setComponentState) {
+      setComponentState(t('Home'));
     }
-
   };
   const selected = localStorage.getItem('i18nextLng') || 'English';
 
@@ -35,11 +34,7 @@ const ChangeLanguage = ({setComponentState}) => {
         }}
       >
         {window.innerWidth < 980 ? (
-          <img
-            src={languageMap[selected]?.img}
-            alt={'country'}
-            style={{ marginRight: '10px' }}
-          />
+          <img src={languageMap[selected]?.img} alt={'country'} style={{ marginRight: '10px' }} />
         ) : (
           <span className={'spanText'}>{languageMap[selected]?.label}</span>
         )}
@@ -51,27 +46,27 @@ const ChangeLanguage = ({setComponentState}) => {
         onClose={() => setMenuAnchor(null)}
         anchorOrigin={{
           vertical: 'bottom',
-          horizontal: 'right',
+          horizontal: 'right'
         }}
         transformOrigin={{
           vertical: 'top',
-          horizontal: 'right',
+          horizontal: 'right'
         }}
       >
-          <List>
-            {Object.keys(languageMap)?.map((item) => (
-              <ListItem
-                button
-                key={item}
-                onClick={() => {
-                  changeLanguage(item);
-                }}
-              >
-                <img src={languageMap[item].img} alt={item} />
-                <span className={'spanText2'}>{languageMap[item].label}</span>
-              </ListItem>
-            ))}
-          </List>
+        <List>
+          {Object.keys(languageMap)?.map((item) => (
+            <ListItem
+              button
+              key={item}
+              onClick={() => {
+                changeLanguage(item);
+              }}
+            >
+              <img src={languageMap[item].img} alt={item} />
+              <span className={'spanText2'}>{languageMap[item].label}</span>
+            </ListItem>
+          ))}
+        </List>
       </Popover>
     </div>
   );

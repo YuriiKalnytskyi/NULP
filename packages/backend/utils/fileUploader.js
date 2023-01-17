@@ -1,6 +1,6 @@
-const fs = require("fs");
-const util = require("util");
-const { join, extname } = require("path");
+const fs = require('fs');
+const util = require('util');
+const { join, extname } = require('path');
 
 const mkdir = util.promisify(fs.mkdir);
 

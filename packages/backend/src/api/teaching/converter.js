@@ -1,4 +1,3 @@
-const { writeFile } = require("../../../utils/fileUploader");
 const helper = require('../../app/helpers/helper');
 
 const teaching = {
@@ -6,7 +5,7 @@ const teaching = {
     text: (body) => {
       const text = [];
       for (const textKey in body) {
-        if (textKey.includes("text")) {
+        if (textKey.includes('text')) {
           text.push({ [textKey]: body[textKey] });
         }
       }
@@ -15,7 +14,7 @@ const teaching = {
     links: (body) => {
       const links = [];
       for (const textKey in body) {
-        if (textKey.includes("link")) {
+        if (textKey.includes('link')) {
           links.push({ [textKey]: body[textKey] });
         }
       }
@@ -26,11 +25,8 @@ const teaching = {
         const images = [];
         for (const fileKey in files) {
           const oneFile = files[fileKey];
-          // const path = await writeFile(oneFile, "teachingPhotos");
-          console.log('----')
 
-          const cloudImageUrl = await helper.cloudinary.uploadFile(oneFile)
-          console.log('----')
+          const cloudImageUrl = await helper.cloudinary.uploadFile(oneFile);
           let url = cloudImageUrl.url.split('://');
           let res = 'https://' + url[1];
           images.push({ [fileKey]: res });
@@ -40,10 +36,8 @@ const teaching = {
         return [];
       }
     }
-
   }
 };
-
 
 module.exports = {
   teaching

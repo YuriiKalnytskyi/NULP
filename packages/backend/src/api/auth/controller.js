@@ -5,17 +5,21 @@ const service = require('./service');
 
 const registration = {
   post: async (req, res) => {
-    await controller.sendJson(res, async (connection)=> {
-      return await service.registration.post(connection, req.options);
-    }, StatusCodes.CREATED)
+    await controller.sendJson(
+      res,
+      async (connection) => {
+        return await service.registration.post(connection, req.options);
+      },
+      StatusCodes.CREATED
+    );
   }
 };
 
 const login = {
   post: async (req, res) => {
-    await controller.sendJson(res, async (connection)=> {
+    await controller.sendJson(res, async (connection) => {
       return await service.login.post(connection, req.options);
-    })
+    });
   }
 };
 

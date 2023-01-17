@@ -5,7 +5,7 @@ module.exports = class ForgotPasswords extends Sequelize.Model {
     return super.init(
       {
         code: DataTypes.STRING,
-        user_id: DataTypes.INTEGER,
+        user_id: DataTypes.INTEGER
       },
       {
         sequelize,

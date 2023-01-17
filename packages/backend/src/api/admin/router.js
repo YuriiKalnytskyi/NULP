@@ -5,10 +5,11 @@ const router = express.Router({});
 const asyncHandler = require('express-async-handler');
 const controller = require('./controller');
 
-router.post('/add/notification',
-    asyncHandler(middlewares.auth.admin),
-    validator.main(schemas.router.addNotification.post),
-    asyncHandler(controller.addNotification.post),
+router.post(
+  '/add/notification',
+  asyncHandler(middlewares.auth.admin),
+  validator.main(schemas.router.addNotification.post),
+  asyncHandler(controller.addNotification.post)
 );
 
 module.exports = router;

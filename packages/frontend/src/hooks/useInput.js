@@ -11,14 +11,10 @@ const useValidator = (value, validators) => {
     for (const validator in validators) {
       switch (validator) {
         case 'minLength':
-          value.length < validators[validator]
-            ? setMinLength(true)
-            : setMinLength(false);
+          value.length < validators[validator] ? setMinLength(true) : setMinLength(false);
           break;
         case 'maxLength':
-          value.length > validators[validator]
-            ? setMaxLength(true)
-            : setMaxLength(false);
+          value.length > validators[validator] ? setMaxLength(true) : setMaxLength(false);
           break;
         case 'isEmpty':
           value ? setIsEmpty(false) : setIsEmpty(true);
@@ -48,7 +44,7 @@ const useValidator = (value, validators) => {
     inputValid,
     minLengthError,
     maxLengthError,
-    emailError,
+    emailError
   };
 };
 const useHandlerErrorValidator = (inputName) => {
@@ -81,12 +77,12 @@ const useHandlerErrorValidator = (inputName) => {
     inputName.minLengthError,
     inputName.isEmpty,
     inputName.isDirty,
-    inputName.maxLengthError,
+    inputName.maxLengthError
   ]);
 
   return {
     flag: error.flag,
-    message: error.message,
+    message: error.message
   };
 };
 
@@ -104,11 +100,10 @@ export const useInput = (initialValue, validators) => {
   const onBlur = () => {
     setIsDirty(true);
   };
-  const setInputValid = ()=> {
+  const setInputValid = () => {
     setValue('');
     setIsDirty(false);
-  }
-
+  };
 
   return {
     flag,
@@ -118,6 +113,6 @@ export const useInput = (initialValue, validators) => {
     onChange,
     onBlur,
     setInputValid,
-    ...valid,
+    ...valid
   };
 };

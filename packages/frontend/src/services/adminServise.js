@@ -1,15 +1,12 @@
-import axiosInstance from "./services";
-
-
-
+import axiosInstance from './services';
 
 // ================= news =========================
 
 export const addNewsServer = async (data) => {
   try {
-    const token = localStorage.getItem("accessToken");
+    const token = localStorage.getItem('accessToken');
 
-    const response = await axiosInstance.post("/admin/add/news", data, {
+    const response = await axiosInstance.post('/admin/add/news', data, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -28,14 +25,13 @@ export const deleteNewsServer = async (newsId) => {
   }
 };
 
-
 // ================= teaching =========================
 
 export const addTeachingServer = async (data) => {
   try {
-    const token = localStorage.getItem("accessToken");
+    const token = localStorage.getItem('accessToken');
 
-    const response = await axiosInstance.post("/teaching/add/newTeaching", data, {
+    const response = await axiosInstance.post('/teaching/add/newTeaching', data, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -47,18 +43,19 @@ export const addTeachingServer = async (data) => {
 };
 export const deleteTeachingServer = async (teachingId) => {
   try {
-    const response = await axiosInstance.delete(`/teaching/delete/teaching?teachingId=${teachingId}`);
+    const response = await axiosInstance.delete(
+      `/teaching/delete/teaching?teachingId=${teachingId}`
+    );
     return response.data;
   } catch (e) {
     return e.response.data;
   }
 };
 
-
 // ================= notification =========================
 export const addNotificationServer = async (data) => {
   try {
-    const token = localStorage.getItem("accessToken");
+    const token = localStorage.getItem('accessToken');
 
     const response = await axiosInstance.post(`/admin/add/notification`, data, {
       headers: {
@@ -70,4 +67,3 @@ export const addNotificationServer = async (data) => {
     return e.response.data;
   }
 };
-

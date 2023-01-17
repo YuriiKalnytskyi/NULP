@@ -27,7 +27,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className={classes.root}>
         <Router>
-          <Context.Provider value={{ token, login, logout, }}>
+          <Context.Provider value={{ token, login, logout }}>
             {isAuthenticated && <Redirect to={'/all'} />}
             {!isAuthenticated && <Redirect to={'/login'} />}
 
@@ -43,12 +43,12 @@ const useStyles = makeStyles({
   root: {
     height: '100%',
     width: '100%',
-    background: '#0D1118',
+    background: '#0D1118'
   },
   test: {
     height: '100%',
-    width: '100%',
-  },
+    width: '100%'
+  }
 });
 
 export default App;

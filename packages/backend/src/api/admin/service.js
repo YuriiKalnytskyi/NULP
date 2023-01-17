@@ -1,19 +1,16 @@
-
 const addNotification = {
-    post: async (connection, options) => {
+  post: async (connection, options) => {
+    await connection.Notifications.create({ ...options });
 
-        await connection.Notifications.create({...options})
-
-        return {
-            'success': true,
-            'result': {
-                "signal": 'Notification successfully added'
-            },
-        }
-    }
+    return {
+      success: true,
+      result: {
+        signal: 'Notification successfully added'
+      }
+    };
+  }
 };
 
-
 module.exports = {
-    addNotification,
+  addNotification
 };

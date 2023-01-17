@@ -8,10 +8,9 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import { Context } from '../../context/context';
 import noise from '../../images/noise.png';
-import PaymentPage2 from "../pop-ap/PaymentPage2";
-import { loginServer } from "../../services/authServise";
-import ChangeLanguage from "../ChangeLanguage/ChangeLanguage";
-
+import PaymentPage2 from '../pop-ap/PaymentPage2';
+import { loginServer } from '../../services/authServise';
+import ChangeLanguage from '../ChangeLanguage/ChangeLanguage';
 
 const Login = () => {
   const { t } = useTranslation();
@@ -19,25 +18,23 @@ const Login = () => {
 
   const [disabledBtn, setDisabledBtn] = useState(false);
 
-  console.log(disabledBtn)
   const [error, setError] = useState({ flag: false, message: '', input: '' });
-  const [paymentError, setPaymentError] = useState({ flag: false,  paymentUrl: '' });
-  const [checked, setChecked] = useState(false);
+  const [paymentError, setPaymentError] = useState({ flag: false, paymentUrl: '' });
   const [pass, setPass] = useState(false);
 
   const [data, setData] = useState({
     email: '',
-    password: '',
+    password: ''
   });
 
   const email = useInput('', {
     isEmpty: true,
     minLength: 3,
-    emailValid: true,
+    emailValid: true
   });
   const password = useInput('', {
     isEmpty: true,
-    minLength: 3,
+    minLength: 3
   });
 
   const changeHandler = (e) => {
@@ -55,7 +52,7 @@ const Login = () => {
 
     const loginData = await loginServer({
       email: data.email,
-      password: data.password,
+      password: data.password
     });
 
     if (loginData?.access_token) {
@@ -105,8 +102,6 @@ const Login = () => {
     }
   };
 
-
-
   useEffect(() => {
     if (!email.inputValid || !password.inputValid) {
       setDisabledBtn(false);
@@ -117,9 +112,13 @@ const Login = () => {
 
   return (
     <div className={'rootAuth'}>
-      {
-        paymentError.flag  && <PaymentPage2 open={paymentError} setOpen={setPaymentError} paymentUrl={paymentError.paymentUrl}/>
-      }
+      {paymentError.flag && (
+        <PaymentPage2
+          open={paymentError}
+          setOpen={setPaymentError}
+          paymentUrl={paymentError.paymentUrl}
+        />
+      )}
 
       <div className={'changeLanguage'}>
         <ChangeLanguage />
@@ -137,9 +136,7 @@ const Login = () => {
         <div className={'formContainerSmall'}>
           <div className={'formSmall'}>
             <div className={'boxContainer3'}>
-              <div className={'forgotTitle'}>
-                {t('Log_in')}
-              </div>
+              <div className={'forgotTitle'}>{t('Log_in')}</div>
 
               <form action="">
                 <div className={'inputContainer'}>
@@ -148,7 +145,7 @@ const Login = () => {
                     style={
                       email.isDirty && email.flag
                         ? {
-                            border: '1px solid #FF0000',
+                            border: '1px solid #FF0000'
                           }
                         : { border: '1px solid silver' }
                     }
@@ -162,11 +159,9 @@ const Login = () => {
                     }}
                     onBlur={(e) => email.onBlur(e)}
                   />
-                  {email.isDirty &&
-                    email.flag &&
-                    email.message === 'Некоректна email' && (
-                      <div className={'inputError'}>{email.message}</div>
-                    )}
+                  {email.isDirty && email.flag && email.message === 'Некоректна email' && (
+                    <div className={'inputError'}>{email.message}</div>
+                  )}
                   {error.flag && error.input === 'email' && (
                     <div className={'inputError'}>{error.message}</div>
                   )}
@@ -179,7 +174,7 @@ const Login = () => {
                       height: '40px',
                       position: 'relative',
                       display: 'flex',
-                      justifyContent: 'center',
+                      justifyContent: 'center'
                     }}
                   >
                     <input
@@ -188,10 +183,10 @@ const Login = () => {
                       style={
                         password.isDirty && password.flag
                           ? {
-                              border: '1px solid #FF0000',
+                              border: '1px solid #FF0000'
                             }
                           : {
-                              border: '1px solid silver',
+                              border: '1px solid silver'
                             }
                       }
                       type={pass ? 'text' : 'password'}
@@ -226,7 +221,6 @@ const Login = () => {
                     <div className={'inputError'}>{error.message}</div>
                   )}
                 </div>
-
               </form>
             </div>
 
@@ -246,7 +240,7 @@ const Login = () => {
                     <Link
                       style={{
                         color: 'red',
-                        textDecoration: 'none',
+                        textDecoration: 'none'
                       }}
                       to={'/password-forgot-step-1'}
                     >
@@ -259,7 +253,7 @@ const Login = () => {
                   <button
                     style={{
                       marginTop: '15px',
-                      height: '40px',
+                      height: '40px'
                     }}
                     className={'btnOrange'}
                   >

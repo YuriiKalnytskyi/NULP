@@ -1,4 +1,4 @@
-import axiosInstance from "./services";
+import axiosInstance from './services';
 
 export const registerServer = async (data) => {
   try {
@@ -26,9 +26,9 @@ export const logoutServer = async () => {
       {},
       {
         headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      },
+          Authorization: `Bearer ${token}`
+        }
+      }
     );
   } catch (e) {
     return e.response.data;
@@ -36,9 +36,7 @@ export const logoutServer = async () => {
 };
 export const forgotPasswordStep1Server = async (email) => {
   try {
-    const response = await axiosInstance.post(
-      `/auth/forgot/password?email=${email}`
-    );
+    const response = await axiosInstance.post(`/auth/forgot/password?email=${email}`);
     return response.data;
   } catch (e) {
     alert(JSON.stringify(e.response?.data?.message, null, 2));
@@ -47,12 +45,11 @@ export const forgotPasswordStep1Server = async (email) => {
 export const forgotPasswordStep2Server = async (code) => {
   try {
     const response = await axiosInstance.post(`/auth/verify/code`, {
-      code,
+      code
     });
     return response.data;
   } catch (e) {
-
-    return e.response.data
+    return e.response.data;
   }
 };
 export const forgotPasswordStep3Server = async (data) => {

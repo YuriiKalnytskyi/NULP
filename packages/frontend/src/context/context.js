@@ -9,5 +9,5 @@ export const Context = createContext({
   logout: noop,
   update: noop,
   isAuthenticated: false,
-  ready: false,
+  ready: false
 });

@@ -7,10 +7,8 @@ const PreReloader = () => {
     <div className={'loaderContainer'}>
       <div className={'loaderFone'} />
       <img src={noise} alt={'noise'} className={'noiseMain'} />
-      <img className={'logoLoader'} src={logoImage} alt='logoImageLoader' />
-      <div className={'loaderWrapper'}>
-
-      </div>
+      <img className={'logoLoader'} src={logoImage} alt="logoImageLoader" />
+      <div className={'loaderWrapper'}></div>
     </div>
   );
 };

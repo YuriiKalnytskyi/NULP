@@ -1,14 +1,12 @@
-const converter = require("./converter");
-
+const converter = require('./converter');
 
 const getTeaching = {
   get: async (connection) => {
-
     const teachings = await connection.Teachings.findAll();
 
     return {
-      "success": true,
-      "result": {
+      success: true,
+      result: {
         teachings: teachings
       }
     };
@@ -29,9 +27,9 @@ const addTeaching = {
     });
 
     return {
-      "success": true,
-      "result": {
-        "message": "Teaching successfully created"
+      success: true,
+      result: {
+        message: 'Teaching successfully created'
       }
     };
   }
@@ -39,13 +37,12 @@ const addTeaching = {
 
 const deleteTeaching = {
   delete: async (connection, options) => {
-
     await connection.Teachings.destroy({ where: { id: options.teachingId } });
 
     return {
-      "success": true,
-      "result": {
-        result: "Teaching was successfully deleted"
+      success: true,
+      result: {
+        result: 'Teaching was successfully deleted'
       }
     };
   }
