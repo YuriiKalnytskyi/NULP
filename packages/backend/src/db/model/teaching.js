@@ -6,7 +6,8 @@ module.exports = class Teachings extends Sequelize.Model {
       {
         title: DataTypes.STRING,
         lesson: DataTypes.STRING,
-        description: Sequelize.JSONB,
+        description: DataTypes.JSONB,
+        subject: DataTypes.STRING
       },
       {
         sequelize,

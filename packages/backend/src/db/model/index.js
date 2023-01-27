@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 
-const db = require('../../app/helpers/db')
+const db = require('../../app/helpers/db');
 
 const sequelize = new Sequelize(db);
 

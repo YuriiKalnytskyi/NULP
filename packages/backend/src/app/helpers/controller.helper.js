@@ -1,10 +1,10 @@
 const { StatusCodes } = require('http-status-codes');
-const db = require('../../db/model/index')
+const db = require('../../db/model/index');
 
 async function sendJson(res, action, status = StatusCodes.OK) {
   let result = null;
 
-  result = await action(db)
+  result = await action(db);
 
   if (db === null) {
     return res.status(StatusCodes.NOT_FOUND).json('No connection to the database.');

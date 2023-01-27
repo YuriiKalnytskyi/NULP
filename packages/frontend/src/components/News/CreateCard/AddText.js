@@ -1,20 +1,19 @@
 import { Dialog } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
-import './Teaching.css'
+import './CreateCard.css'
 import React, {useState} from "react";
 
-const AddLink = ({ open, setOpen, onChange , index , setIndexLink, indexLink }) => {
+const AddText = ({ open, setOpen, onChange , index, setIndex  }) => {
 
     const [text, setText] = useState('')
 
     const close = () => {
         setOpen(false)
-      setIndexLink(indexLink+1)
     };
 
     const close2 =() => {
         setOpen(false)
-      // setIndexLink(indexLink-1)
+        setIndex(index-1)
     }
 
     return(
@@ -35,16 +34,20 @@ const AddLink = ({ open, setOpen, onChange , index , setIndexLink, indexLink }) 
 
                         <textarea
                             className={'InputTitle2'}
-                            placeholder={'Link'}
-                            name={`link ${index} ${indexLink}`}
+                            placeholder={'Текст'}
+                            name={`text ${index}`}
                             id=''
                             cols='20' rows='20'
                             value={text.value}
-                            onChange={onChange}
+                            onChange={(e) => {
+                                onChange(e)
+                                setText(e.target.value)
+
+                            }}
                         />
 
                         <div className={'addTextBtn'}>
-                            <button onClick={close} className={'addButton3'}>Додати силку</button>
+                            <button onClick={close} className={'addButton3'}>Додати текст</button>
                         </div>
 
 
@@ -56,4 +59,4 @@ const AddLink = ({ open, setOpen, onChange , index , setIndexLink, indexLink }) 
         </div>
     )
 }
-export default AddLink
+export default AddText

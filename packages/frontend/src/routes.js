@@ -20,21 +20,9 @@ export const useRouters = (isAuthenticated) => {
       <Switch>
         <Route exact path="/" component={Registration} />
         <Route exact path="/login" component={Login} />
-        <Route
-          exact
-          path="/password-forgot-step-1"
-          component={ForgotPasswordStep1}
-        />
-        <Route
-          exact
-          path="/password-forgot-step-2"
-          component={ForgotPasswordStep2}
-        />
-        <Route
-          exact
-          path="/password-forgot-step-3"
-          component={ForgotPasswordStep3}
-        />
+        <Route exact path="/password-forgot-step-1" component={ForgotPasswordStep1} />
+        <Route exact path="/password-forgot-step-2" component={ForgotPasswordStep2} />
+        <Route exact path="/password-forgot-step-3" component={ForgotPasswordStep3} />
       </Switch>
     );
   }

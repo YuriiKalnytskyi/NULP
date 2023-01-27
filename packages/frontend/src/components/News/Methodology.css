@@ -1,0 +1,486 @@
+.methodologyContainer {
+    width: 100%;
+    height: 100%;
+    color: white;
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    display: flex;
+}
+
+.methodologyContainerSkrol {
+    width: 90%;
+    /*height: 87%;*/
+    height: fit-content;
+    max-height: 87%;
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    overflow-y: auto;
+}
+
+.methodologyContainerSkrol3 {
+    width: 93%;
+    /*height: 87%;*/
+    height: fit-content;
+    max-height: 77%;
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    overflow-y: auto;
+}
+
+.methodologyContainerSkrol2 {
+    width: 30%;
+    height: fit-content;
+    max-height: 87%;
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    overflow-y: auto;
+    right: 0;
+}
+
+.addMethodology {
+    width: 350px;
+    height: 200px;
+    background: rgba(13, 17, 24, 0.51);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin-right: 2%;
+    margin-bottom: 30px;
+}
+
+.methodologyWrapper {
+    width: 350px;
+    height: 200px;
+    background: #0D1118;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 21px;
+    position: relative;
+    margin-bottom: 4%;
+    margin-right: 2%;
+}
+
+.methodologyWrapper2 {
+    width: 687px;
+    min-height: 320px;
+    max-height: 670px;
+    height: 635px;
+    background: #0D1118;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 21px;
+    position: relative;
+    margin-bottom: 30px;
+    margin-right: 1.1%;
+
+}
+
+.methodologyTime {
+    max-height: 30px;
+    height: 10%;
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.0016em;
+    color: #FAFFFC;
+    margin: 5px 0 0 18px;
+}
+
+.methodologyTime2 {
+    width: 100%;
+    max-height: 30px;
+    height: 10%;
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.0016em;
+    color: #FAFFFC;
+}
+
+.methodologyTitle {
+    width: 90%;
+    height: fit-content;
+    max-height: 200px;
+    font-family: Gilroy;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #FAFFFC;
+    margin: 5px 0 15px 18px;
+}
+
+.methodologyTitle2 {
+    width: 90%;
+    height: fit-content;
+    max-height: 200px;
+    font-family: Gilroy;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    color: #FAFFFC;
+    margin: 10px auto;
+}
+
+.methodologyInfo {
+    width: 70%;
+    height: 40%;
+    font-family: Gilroy;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #FAFFFC;
+    margin-left: 20px;
+}
+
+.methodologyInfo2Container {
+    width: 90%;
+    height: 75%;
+    min-height: 400px;
+    max-heightx: 470px;
+    margin: 10px auto;
+}
+
+
+.methodologyInfo2 {
+    width: 43%;
+    /*height: 100%;*/
+    height: 470px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    color: #FAFFFC;
+    position: fixed;
+    overflow-y: auto;
+}
+
+.methodologyInfo2::-webkit-scrollbar {
+    width: 1px;
+    background-color: #ddd;
+}
+
+.methodologyInfo2::-webkit-scrollbar-thumb {
+    background-color: #444;
+}
+
+
+.methodologyButton {
+    width: 100%;
+    max-height: 77px;
+    height: 20%;
+    position: absolute;
+    bottom: 15px;
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+
+}
+
+.methodologyButton2 {
+    width: 100%;
+    max-height: 77px;
+    height: 20%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.readMethodologyButton {
+    width: 190px;
+    height: 40px;
+    margin-left: 30px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    border: 1px solid white;
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 40px;
+    letter-spacing: 0.0016em;
+    color: #0D1118;
+    cursor: pointer;
+}
+.closeMethodologyButton {
+    width: 190px;
+    height: 40px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    border: 1px solid white;
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 40px;
+    letter-spacing: 0.0016em;
+    color: #0D1118;
+    cursor: pointer;
+}
+
+/*.createMethodologyContainer {*/
+/*    width: 100%;*/
+/*    height: 90%;*/
+/*    background: #0D1118;*/
+/*    border: 1px solid #FFFFFF;*/
+/*    box-sizing: border-box;*/
+/*    border-radius: 21px;*/
+/*    !*position: relative;*!*/
+/*}*/
+
+/*.closeMethodology {*/
+/*    position: absolute;*/
+/*    right: 15px;*/
+/*    top: 15px;*/
+/*    font-size: 25px;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.addMethodologyInputTitle {*/
+/*    width: 645px;*/
+/*    height: 56px;*/
+/*    margin: 25px 0 40px 44px;*/
+/*}*/
+
+.methodologyInputTitle {
+    width: 100%;
+    height: 80%;
+    background: #0D1118;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding-left: 20px;
+
+    font-family: Gilroy;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #FAFFFC;
+}
+
+.methodologyInputTitle2 {
+    width: 100%;
+    height: 40px;
+    background: #0D1118;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding-left: 20px;
+
+    font-family: Gilroy;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #FAFFFC;
+}
+
+.methodologyInputTitle::placeholder {
+    color: #FAFFFC;
+}
+
+.methodologyInputTitle:focus {
+    outline: none;
+}
+
+.methodologyInputTitle2::placeholder {
+    color: #FAFFFC;
+}
+
+.methodologyInputTitle2:focus {
+    outline: none;
+}
+
+/*.methodologyTextArea {*/
+/*    width: 91%;*/
+/*    height: 70%;*/
+/*    !*margin-left: 31px;*!*/
+/*    margin: 0 auto;*/
+
+/*    border-radius: 10px;*/
+/*}*/
+
+.methodologyTextAreaWrapper {
+    width: 100%;
+    height: 100%;
+    padding: 10px 0 0 10px;
+    font-family: Gilroy;
+    font-weight: 400;
+    background: #0D1118;
+    font-style: normal;
+    font-size: 16px;
+    border-radius: 10px;
+    color: #FAFFFC;
+}
+
+.methodologyTextAreaWrapper::placeholder {
+    color: #FAFFFC;
+}
+
+.methodologyTextAreaWrapper:focus {
+    outline: none;
+}
+
+.btn {
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.addMethodologyButton {
+    width: 190px;
+    height: 40px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    border: 1px solid white;
+    /*margin-left: 22px;*/
+
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 16px;
+    color: #0D1118
+}
+
+.addMethodologyButton2 {
+    width: 150px;
+    height: 40px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    border: 1px solid white;
+    /*margin-left: 22px;*/
+
+    font-family: Gilroy;
+    font-weight: 600;
+    font-size: 16px;
+    color: #0D1118
+}
+
+.redMethodology {
+    width: 70%;
+    height: 100%;
+}
+
+.methodologyInputLesson::placeholder {
+    color: #FAFFFC;
+}
+
+.methodologyInputLesson {
+    width: 346px;
+    height: 56px;
+    position: absolute;
+    right: 70px;
+    top: 25px;
+    background: #0D1118;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding-left: 20px;
+
+    font-family: Gilroy;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #FAFFFC;
+}
+
+/*=============================*/
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 25px;
+    cursor: pointer;
+    color: red;
+}
+
+.text {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+
+    flex-direction: column;
+}
+
+.addImage {
+    width: 100%;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 3px;
+}
+
+.methodologyDescription1 {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.description {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.descriptionText {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.imTestContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imTest {
+    width: 50%;
+    /*height: 300px;*/
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 600px) {
+    .methodologyWrapper {
+        width: 340px;
+    }
+
+    .methodologyWrapper2 {
+        width: 340px;
+        height: 95%;
+    }
+
+    .methodologyInfo2 {
+        width: 80%;
+        height: 45%;
+    }
+}

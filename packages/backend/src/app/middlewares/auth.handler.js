@@ -31,7 +31,7 @@ const auth = (secret) => {
   };
 };
 
-const admin = async (req, res, next) => {
+const  admin = async (req, res, next) => {
   let bearerToken = req.headers.authorization;
   if (bearerToken === undefined) {
     return doom.error.tokenNotFound(res);

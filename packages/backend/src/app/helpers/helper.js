@@ -7,6 +7,7 @@ module.exports = {
   controller: require('./controller.helper'),
   token: require('./token.helper'),
   mailer: require('./mailer.helper'),
+  cloudinary: require('./cloudinary.helper'),
 
   middlewares: {
     auth: require('../middlewares/auth.handler'),

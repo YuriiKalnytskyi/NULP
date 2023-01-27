@@ -6,7 +6,7 @@ import en from './translations/en.json';
 
 const resources = {
   uk: { translation: uk },
-  en: { translation: en },
+  en: { translation: en }
 };
 
 // export const availableLanguages = Object.keys(resources);
@@ -28,17 +28,17 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: "uk",
+    lng: 'uk',
     supportedLngs: ['uk', 'en', 'tr', 'es'],
     detection: {
-      checkWhitelist: true,
+      checkWhitelist: true
     },
 
     whitelist: ['en', 'uk', 'tr', 'es'],
 
     interpolation: {
-      escapeValue: false,
-    },
+      escapeValue: false
+    }
   });
 
 export default i18n;

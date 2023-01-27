@@ -9,7 +9,6 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "lerna run --parallel start ",
     "start:local": "lerna run --parallel start:local ",
     "format:check": "prettier --check './**/*.{js, css, html, tsx, ts}'",
     "format:fix": "prettier --write './**/*.{js, css, html, tsx, ts}'",

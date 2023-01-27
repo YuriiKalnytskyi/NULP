@@ -5,18 +5,17 @@ import { Link } from 'react-router-dom';
 import { useInput } from '../../hooks/useInput';
 import { useState } from 'react';
 import noise from '../../images/noise.png';
-import { useTranslation } from "react-i18next";
-import { forgotPasswordStep1Server } from "../../services/authServise";
-import ChangeLanguage from "../ChangeLanguage/ChangeLanguage";
+import { useTranslation } from 'react-i18next';
+import { forgotPasswordStep1Server } from '../../services/authServise';
+import ChangeLanguage from '../ChangeLanguage/ChangeLanguage';
 
 const ForgotPasswordStep1 = () => {
   const { t } = useTranslation();
 
-
   const email = useInput('', {
     isEmpty: true,
     minLength: 3,
-    emailValid: true,
+    emailValid: true
   });
   const [data, setData] = useState();
 
@@ -53,18 +52,11 @@ const ForgotPasswordStep1 = () => {
             <div className={'boxContainer'}>
               <div className={'forgotContainerText'}>
                 <div className={'forgotTitle'}>{t('Text_forgot_password5')}</div>
-                <div className={'forgotText'}>
-                  {t('Text_forgot_password4')}
-                </div>
+                <div className={'forgotText'}>{t('Text_forgot_password4')}</div>
               </div>
 
-              <div
-                className={'forgotContainerInput'}
-                style={{ justifyContent: 'center' }}
-              >
-                {email.isDirty && email.flag && (
-                  <div className={'inputError'}>{email.message}</div>
-                )}
+              <div className={'forgotContainerInput'} style={{ justifyContent: 'center' }}>
+                {email.isDirty && email.flag && <div className={'inputError'}>{email.message}</div>}
 
                 <input
                   className={'inputForgot1'}
@@ -90,7 +82,7 @@ const ForgotPasswordStep1 = () => {
                     style={{ marginTop: '5px' }}
                     className={!email.inputValid ? 'btnDisabled' : 'btnBlack'}
                   >
-                    {t("Text_forgot_password3")}
+                    {t('Text_forgot_password3')}
                   </button>
                 </Link>
 

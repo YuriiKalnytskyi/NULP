@@ -1,45 +1,41 @@
 import './AuthStail.css';
 import logo from '../../images/logo_new.png';
 import lock from '../../images/Lock.png';
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect } from 'react-router-dom';
 import { useState } from 'react';
 import noise from '../../images/noise.png';
 import ChangeLanguage from '../ChangeLanguage/ChangeLanguage';
-import { useTranslation } from "react-i18next";
-import { forgotPasswordStep2Server } from "../../services/authServise";
+import { useTranslation } from 'react-i18next';
+import { forgotPasswordStep2Server } from '../../services/authServise';
 
 const ForgotPasswordStep2 = () => {
   const { t } = useTranslation();
 
   const [data, setData] = useState({ code: '' });
-  const [error, setError] = useState({flag: false, message: ''})
+  const [error, setError] = useState({ flag: false, message: '' });
   const [success, setSuccess] = useState(false);
-
 
   const changeHandler = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
   const forgotPassword = async (e) => {
-    const  forgotPasswordData  = await forgotPasswordStep2Server(data.code);
+    const forgotPasswordData = await forgotPasswordStep2Server(data.code);
 
     if (forgotPasswordData.errorCode === 160) {
       setError((prev) => {
         prev.flag = true;
-        prev.message = t("Text_forgot_password8");
+        prev.message = t('Text_forgot_password8');
         return { ...prev };
       });
-    }else {
-      setSuccess(true)
+    } else {
+      setSuccess(true);
     }
   };
 
   return (
     <div className={'rootAuth'}>
-
-      {
-        success && <Redirect to={'/password-forgot-step-3'} />
-      }
+      {success && <Redirect to={'/password-forgot-step-3'} />}
       <div className={'changeLanguage'}>
         <ChangeLanguage />
       </div>
@@ -60,16 +56,11 @@ const ForgotPasswordStep2 = () => {
 
             <div className={'boxContainer'}>
               <div className={'forgotContainerText'}>
-                <div className={'forgotTitle'}>{t("Text_forgot_password6")}</div>
-                <div className={'forgotText'}>
-                  {t('Text_forgot_password7')}
-                </div>
+                <div className={'forgotTitle'}>{t('Text_forgot_password6')}</div>
+                <div className={'forgotText'}>{t('Text_forgot_password7')}</div>
               </div>
 
-              <div
-                className={'forgotContainerInput'}
-                style={{ justifyContent: 'center' }}
-              >
+              <div className={'forgotContainerInput'} style={{ justifyContent: 'center' }}>
                 <div className={'forgotContainerInputStep2'}>
                   <input
                     className={'inputForgot2'}
@@ -81,25 +72,20 @@ const ForgotPasswordStep2 = () => {
                     size="4"
                     onChange={changeHandler}
                   />
-                  {error.flag  && (
-                    <div className={'inputError2'}>{error.message}</div>
-                  )}
+                  {error.flag && <div className={'inputError2'}>{error.message}</div>}
                 </div>
-
               </div>
             </div>
             <div className={'buttonContainer'} style={{ marginTop: '-20px' }}>
               <div className={'buttonInfo'}>
-                  <button
-                    onClick={forgotPassword}
-                    disabled={data.code.length <= 3}
-                    style={{ marginTop: '5px' }}
-                    className={
-                      data.code.length <= 3 ? 'btnDisabled' : 'btnBlack'
-                    }
-                  >
-                    {t("Text_forgot_password3")}
-                  </button>
+                <button
+                  onClick={forgotPassword}
+                  disabled={data.code.length <= 3}
+                  style={{ marginTop: '5px' }}
+                  className={data.code.length <= 3 ? 'btnDisabled' : 'btnBlack'}
+                >
+                  {t('Text_forgot_password3')}
+                </button>
 
                 <Link className={'linc'} to={'/login'}>
                   <button style={{ marginTop: '7px' }} className={'btnOrange'}>

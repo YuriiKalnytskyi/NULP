@@ -1,19 +1,17 @@
-import "./Teaching.css";
-import CloseIcon from "@material-ui/icons/Close";
-import { useInput } from "../../hooks/useInput";
-import { useEffect, useState } from "react";
-import AddImages from "./AddImages";
-import EditImage from "./EditImage";
-import AddText from "./AddText";
-import EditIcon from "@material-ui/icons/Edit";
-import EditText from "./EditText";
-import { addTeachingServer } from "../../services/adminServise";
-import AddLink from "./AddLink";
-import EditLink from "./EditLink";
-
+import './Teaching.css';
+import CloseIcon from '@material-ui/icons/Close';
+import { useInput } from '../../hooks/useInput';
+import { useEffect, useState } from 'react';
+import AddImages from './AddImages';
+import EditImage from './EditImage';
+import AddText from './AddText';
+import EditIcon from '@material-ui/icons/Edit';
+import EditText from './EditText';
+import { addTeachingServer } from '../../services/adminServise';
+import AddLink from '../News/CreateCard/AddLink';
+import EditLink from './EditLink';
 
 const CreateTeaching = ({ open, setOpen, socket }) => {
-
   const formData = new FormData();
 
   const [addImagesState, setAddImagesState] = useState(false);
@@ -34,25 +32,27 @@ const CreateTeaching = ({ open, setOpen, socket }) => {
 
   const [disabledBtn, setDisabledBtn] = useState(false);
 
-  const title = useInput("", {
+  const title = useInput('', {
     isEmpty: true,
     minLength: 3
   });
-  const number = useInput("", {
+  const number = useInput('', {
     isEmpty: true
   });
-
+  const subject = useInput('', {
+    isEmpty: true
+  });
 
   const addText = () => {
     setAddTextState(true);
     setIndex(index + 1);
   };
   const editTextHandler = (t) => {
-    setEditText((prev => {
+    setEditText((prev) => {
       prev.flag = true;
       prev.value = t;
       return { ...prev };
-    }));
+    });
   };
 
   const addImages = () => {
@@ -60,30 +60,28 @@ const CreateTeaching = ({ open, setOpen, socket }) => {
     setIndexImages(indexImages + 1);
   };
   const editImages = (i) => {
-    setEditImage((prev => {
+    setEditImage((prev) => {
       prev.flag = true;
       prev.value = i;
       return { ...prev };
-    }));
+    });
   };
 
   const addLink = () => {
     setAddLinkState(true);
-    setIndexLink(indexLink + 1)
+    setIndexLink(indexLink + 1);
   };
   const editLinks = (i) => {
-    setEditLink((prev => {
+    setEditLink((prev) => {
       prev.flag = true;
       prev.value = i;
       return { ...prev };
-    }));
+    });
   };
-
 
   const textOnChange = (e) => {
     setText({ ...text, [e.target.name]: e.target.value });
   };
-
 
   const imagesOnChange = (e) => {
     setImages({ ...images, [e.target.name]: e.target.files[0] });
@@ -92,7 +90,6 @@ const CreateTeaching = ({ open, setOpen, socket }) => {
   const linkOnChange = (e) => {
     setLinks({ ...links, [e.target.name]: e.target.value });
   };
-
 
   const create = async () => {
     Object.entries(images).map((i) => {
@@ -105,33 +102,29 @@ const CreateTeaching = ({ open, setOpen, socket }) => {
       formData.append(l[0], l[1]);
     });
 
-    formData.append("lesson", number.value);
-    formData.append("title", title.value);
+    formData.append('lesson', number.value);
+    formData.append('title', title.value);
+    formData.append('subject', subject.value);
 
     setOpen(false);
 
+    await addTeachingServer(formData);
 
-   const a = await addTeachingServer(formData);
-
-    console.log(a);
-
-    socket.emit("teaching");
+    socket.emit('addData');
   };
 
   useEffect(() => {
-    if (!title.inputValid || !number.inputValid) {
+    if (!title.inputValid || !number.inputValid || !subject.inputValid) {
       setDisabledBtn(false);
     } else {
       setDisabledBtn(true);
     }
-  }, [title.inputValid, number.inputValid]);
-
-
+  }, [title.inputValid, number.inputValid, subject.inputValid]);
 
   return (
-    <div className={"createContainer"}>
-      {
-        addImagesState && <AddImages
+    <div className={'createContainer'}>
+      {addImagesState && (
+        <AddImages
           setOpen={setAddImagesState}
           open={addImagesState}
           onChange={imagesOnChange}
@@ -139,39 +132,37 @@ const CreateTeaching = ({ open, setOpen, socket }) => {
           setIndex={setIndex}
           indexImages={indexImages}
           setIndexImages={setIndexImages}
-
         />
-      }
-      {
-        editImage.flag && <EditImage
+      )}
+      {editImage.flag && (
+        <EditImage
           open={editImage.flag}
           setOpen={setEditImage}
           onChange={imagesOnChange}
           value={editImage.value}
         />
-      }
+      )}
 
-
-      {
-        addTextState && <AddText
+      {addTextState && (
+        <AddText
           setOpen={setAddTextState}
           open={addTextState}
           onChange={textOnChange}
           setIndex={setIndex}
           index={index}
         />
-      }
-      {
-        editText.flag && <EditText
+      )}
+      {editText.flag && (
+        <EditText
           onChange={textOnChange}
           open={editText.flag}
           setOpen={setEditText}
           value={editText.value}
         />
-      }
+      )}
 
-      {
-        addLinkState && <AddLink
+      {addLinkState && (
+        <AddLink
           setOpen={setAddLinkState}
           open={addLinkState}
           onChange={linkOnChange}
@@ -179,47 +170,51 @@ const CreateTeaching = ({ open, setOpen, socket }) => {
           indexLink={indexLink}
           setIndexLink={setIndexLink}
         />
-      }
-      {
-        editLink.flag && <EditLink
+      )}
+      {editLink.flag && (
+        <EditLink
           onChange={linkOnChange}
           open={editLink.flag}
           setOpen={setEditLink}
           value={editLink.value}
         />
-      }
+      )}
 
-      <CloseIcon color={"error"} className={"closeCard"} onClick={() => {
-        setOpen(false);
-      }} />
-      <div className={"addInputTitle"}>
-        <input className={"InputTitle"}
-               type="text"
-               placeholder={"Назва"}
-               style={
-                 title.isDirty && title.flag
-                   ? {
-                     border: "1px solid #FF0000"
-                   }
-                   : { border: "1px solid silver" }
-               }
-               value={title.value}
-               onChange={(e) => {
-
-                 title.onChange(e);
-               }}
-               onBlur={(e) => title.onBlur(e)}
-        />
+      <CloseIcon
+        color={'error'}
+        className={'closeCard'}
+        onClick={() => {
+          setOpen(false);
+        }}
+      />
+      <div className={'addInputTitle'}>
         <input
-          className={"InputLesson"}
-          type="number"
-          placeholder={"Урок №"}
+          className={'InputTitle'}
+          type="text"
+          placeholder={'Назва'}
           style={
             title.isDirty && title.flag
               ? {
-                border: "1px solid #FF0000"
-              }
-              : { border: "1px solid silver" }
+                  border: '1px solid #FF0000'
+                }
+              : { border: '1px solid silver' }
+          }
+          value={title.value}
+          onChange={(e) => {
+            title.onChange(e);
+          }}
+          onBlur={(e) => title.onBlur(e)}
+        />
+        <input
+          className={'InputLesson'}
+          type="number"
+          placeholder={'Урок №'}
+          style={
+            title.isDirty && title.flag
+              ? {
+                  border: '1px solid #FF0000'
+                }
+              : { border: '1px solid silver' }
           }
           value={number.value}
           onChange={(e) => {
@@ -229,84 +224,104 @@ const CreateTeaching = ({ open, setOpen, socket }) => {
         />
       </div>
 
-      <div className={"scrollCreate"}>
-        <div className={"TextArea"}>
+      <input
+        className={'InputTitle'}
+        type="text"
+        placeholder={'Предмет'}
+        style={
+          subject.isDirty && subject.flag
+            ? {
+                border: '1px solid #FF0000',
+                width: '93%',
+                margin: '0 auto'
+              }
+            : { border: '1px solid silver', width: '93%', margin: '0 auto' }
+        }
+        value={subject.value}
+        onChange={(e) => {
+          subject.onChange(e);
+        }}
+        onBlur={(e) => subject.onBlur(e)}
+      />
 
-          {
-            images && Object.entries(images).filter((image) =>
-              image[0].split(" ")[1] === (0).toString()).map((i, index) =>
-              <div key={index} className={"addImage"}>
-                Картинка {i[1]?.name}
-                <EditIcon onClick={() => editImages(i)} style={{ marginLeft: "20px" }} />
-              </div>
-            )
-          }
-          {
-            links && Object.entries(links).filter((link) =>
-              link[0].split(" ")[1] === (0).toString()).map((i, index) =>
-              <div key={index} className={"text2"}>
-                {i[1]}
-                <EditIcon onClick={() => editLinks(i)} style={{ marginLeft: "20px" }} />
-              </div>
-            )
-          }
-          {
-            Object.entries(text).map((t, index) =>
-              <div key={index} className={"addText"}>
-                <div className={"text2"}>
-                  {t[1]}
-                  <EditIcon onClick={() => editTextHandler(t)}
-                            className={"editIcon"} />
+      <div className={'scrollCreate'}>
+        <div className={'TextArea'}>
+          {images &&
+            Object.entries(images)
+              .filter((image) => image[0].split(' ')[1] === (0).toString())
+              .map((i, index) => (
+                <div key={index} className={'addImage'}>
+                  Картинка {i[1]?.name}
+                  <EditIcon onClick={() => editImages(i)} style={{ marginLeft: '20px' }} />
                 </div>
-                <div>
-                  {
-                    links && Object.entries(links).filter((link) =>
-
-                      link[0].split(" ")[1] === (index + 1).toString()).map((i, index) =>
-                      <div key={index} className={"text2"}>
+              ))}
+          {links &&
+            Object.entries(links)
+              .filter((link) => link[0].split(' ')[1] === (0).toString())
+              .map((i, index) => (
+                <div key={index} className={'text2'}>
+                  {i[1]}
+                  <EditIcon onClick={() => editLinks(i)} style={{ marginLeft: '20px' }} />
+                </div>
+              ))}
+          {Object.entries(text).map((t, index) => (
+            <div key={index} className={'addText'}>
+              <div className={'text2'}>
+                {t[1]}
+                <EditIcon onClick={() => editTextHandler(t)} className={'editIcon'} />
+              </div>
+              <div>
+                {links &&
+                  Object.entries(links)
+                    .filter((link) => link[0].split(' ')[1] === (index + 1).toString())
+                    .map((i, index) => (
+                      <div key={index} className={'text2'}>
                         {i[1]}
-                        <EditIcon onClick={() => editLinks(i)} style={{ marginLeft: "20px" }} />
+                        <EditIcon onClick={() => editLinks(i)} style={{ marginLeft: '20px' }} />
                       </div>
-                    )
-                  }
-                </div>
-                <div>
-                  {
-                    images && Object.entries(images).filter((image) =>
-
-                      image[0].split(" ")[1] === (index + 1).toString()).map((i, index) =>
-                      <div key={index} className={"addImage2"}>
+                    ))}
+              </div>
+              <div>
+                {images &&
+                  Object.entries(images)
+                    .filter((image) => image[0].split(' ')[1] === (index + 1).toString())
+                    .map((i, index) => (
+                      <div key={index} className={'addImage2'}>
                         Картинка {i[1].name}
-                        <EditIcon onClick={() => editImages(i)}
+                        <EditIcon
+                          onClick={() => editImages(i)}
                           // className={'editIcon'}
-                                  style={{ marginLeft: "20px" }}
+                          style={{ marginLeft: '20px' }}
                         />
                       </div>
-                    )
-                  }
-                </div>
-
+                    ))}
               </div>
-            )
-          }
-
+            </div>
+          ))}
         </div>
       </div>
-      <div className={"addButtonContainer"}>
-
-        <div className={"btn"}>
-          <button onClick={addText} className={"addButton2"}>Додати текст</button>
-          <button onClick={addImages} className={"addButton2"}>Додати фото</button>
-          <button onClick={addLink} className={"addButton2"}>Додати силку</button>
+      <div className={'addButtonContainer'}>
+        <div className={'btn'}>
+          <button onClick={addText} className={'addButton2'}>
+            Додати текст
+          </button>
+          <button onClick={addImages} className={'addButton2'}>
+            Додати фото
+          </button>
+          <button onClick={addLink} className={'addButton2'}>
+            Додати силку
+          </button>
         </div>
 
-        <button onClick={create} disabled={!disabledBtn}
-                className={!disabledBtn ? "addButtonDisable" : "addButton"}>Опублікувати
+        <button
+          onClick={create}
+          disabled={!disabledBtn}
+          className={!disabledBtn ? 'addButtonDisable' : 'addButton'}
+        >
+          Опублікувати
         </button>
-
       </div>
     </div>
-
   );
 };
 

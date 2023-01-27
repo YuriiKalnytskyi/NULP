@@ -1,6 +1,6 @@
-import { Dialog } from "@material-ui/core";
-import "./PopApStail.css";
-import { useTranslation } from "react-i18next";
+import { Dialog } from '@material-ui/core';
+import './PopApStail.css';
+import { useTranslation } from 'react-i18next';
 
 const PaymentPage2 = ({ open, setOpen, paymentUrl }) => {
   const { t } = useTranslation();
@@ -10,20 +10,21 @@ const PaymentPage2 = ({ open, setOpen, paymentUrl }) => {
   };
 
   return (
-
     <Dialog
       open={open}
       onClose={handleClose}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
-      <div className={"paymentContainer"}>
-        <div onClick={handleClose} className={"closePay"}>x</div>
-        <div className={"textPayment"}>{t("Text_payment")}</div>
+      <div className={'paymentContainer'}>
+        <div onClick={handleClose} className={'closePay'}>
+          x
+        </div>
+        <div className={'textPayment'}>{t('Text_payment')}</div>
 
-        <div className={"paymentContainerBtn"}>
+        <div className={'paymentContainerBtn'}>
           <a href={paymentUrl} target="_blank">
-            <button className={"btnPayment"}>{t("Payment")}</button>
+            <button className={'btnPayment'}>{t('Payment')}</button>
           </a>
 
           {/*<div className={"text"}>{t("Already_paid")}*/}
@@ -33,11 +34,9 @@ const PaymentPage2 = ({ open, setOpen, paymentUrl }) => {
           {/*  </Link>*/}
           {/*</div>*/}
         </div>
-
       </div>
     </Dialog>
   );
 };
-
 
 export default PaymentPage2;

@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from 'react';
 
 export const useRequest = (name, request, deps = [], setLoader) => {
   const [data, setData] = useState(null);
@@ -8,18 +8,17 @@ export const useRequest = (name, request, deps = [], setLoader) => {
   useEffect(() => {
     console.log(`Get Data ${name}`);
     setLoading(true);
-    setLoader(true)
+    setLoader(true);
     setTimeout(() => {
       request()
         .then((response) => setData(response.data))
         .catch((error1) => setError(error1))
         .finally(() => {
-          setLoading(false)
-          setLoader(false)
+          setLoading(false);
+          setLoader(false);
         });
     }, 1000);
   }, deps ?? []);
 
   return { data, loading, error };
 };
-
