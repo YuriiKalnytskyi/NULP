@@ -1,20 +1,30 @@
 import { Dialog } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import './Teaching.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const AddLink = ({ open, setOpen, onChange, index, setIndexLink, indexLink }) => {
+const EditLink = ({ open, setOpen, onChange, value }) => {
   const [text, setText] = useState('');
 
   const close = () => {
-    setOpen(false);
-    setIndexLink(indexLink + 1);
+    setOpen((prev) => {
+      prev.flag = false;
+      prev.value = {};
+      return { ...prev };
+    });
   };
 
   const close2 = () => {
-    setOpen(false);
-    // setIndexLink(indexLink-1)
+    setOpen((prev) => {
+      prev.flag = false;
+      prev.value = {};
+      return { ...prev };
+    })(false);
   };
+
+  useEffect(() => {
+    setText(value[1]);
+  }, [value]);
 
   return (
     <div>
@@ -33,18 +43,21 @@ const AddLink = ({ open, setOpen, onChange, index, setIndexLink, indexLink }) =>
           <div className={'updateContainer'}>
             <textarea
               className={'InputTitle2'}
-              placeholder={'Link'}
-              name={`link ${index} ${indexLink}`}
+              placeholder={'силка'}
+              name={value[0]}
               id=""
               cols="20"
               rows="20"
-              value={text.value}
-              onChange={onChange}
+              value={text}
+              onChange={(e) => {
+                onChange(e);
+                setText(e.target.value);
+              }}
             />
 
             <div className={'addTextBtn'}>
               <button onClick={close} className={'addButton3'}>
-                Додати силку
+                Змінити силку
               </button>
             </div>
           </div>
@@ -53,4 +66,4 @@ const AddLink = ({ open, setOpen, onChange, index, setIndexLink, indexLink }) =>
     </div>
   );
 };
-export default AddLink;
+export default EditLink;

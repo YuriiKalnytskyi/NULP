@@ -11,6 +11,12 @@ router.get(
   asyncHandler(controller.getProfileInfo.get)
 );
 
+router.get(
+    '/notification',
+    asyncHandler(middlewares.auth.user),
+    asyncHandler(controller.getNotification.get)
+);
+
 router.post(
   '/change/password',
   asyncHandler(middlewares.auth.user),

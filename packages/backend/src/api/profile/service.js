@@ -11,6 +11,16 @@ const getProfileInfo = {
     };
   }
 };
+const getNotification = {
+  get: async (connection, userId) => {
+    const notification = await connection.Notifications.findAll()
+
+    return {
+      success: true,
+      result: { notification : notification }
+    };
+  }
+};
 
 const changePassword = {
   put: async (connection, options, userId) => {
@@ -66,5 +76,6 @@ const deleteAccount = {
 module.exports = {
   changePassword,
   getProfileInfo,
-  deleteAccount
+  deleteAccount,
+  getNotification
 };

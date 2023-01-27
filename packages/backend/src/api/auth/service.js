@@ -8,6 +8,7 @@ const registration = {
     if (findUser) {
       return helper.doom.error.emailAlreadyRegistered();
     }
+    console.log('-----------')
     options.password = bcrypt.hashSync(options.password, 10);
 
     if (!options.email.split('@')[0].split('.').splice(2, 2).join('').includes('20')) {

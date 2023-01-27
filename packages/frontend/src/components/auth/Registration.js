@@ -20,7 +20,6 @@ const Registration = () => {
   const [error, setError] = useState({ flag: false, message: '', input: '' });
   const [disabledBtn, setDisabledBtn] = useState(false);
   const [success, setSuccess] = useState({ flag: false, paymentUrl: '' });
-  const [checked, setChecked] = useState(false);
   const [pass, setPass] = useState(false);
   const [pass1, setPass1] = useState(false);
 
@@ -51,21 +50,8 @@ const Registration = () => {
       lastName: lastName.value,
       email: email.value,
       password: password.value,
-      repeatPassword: repeatPassword.value,
-      country: 'Ukraine'
     });
 
-    if (registerData.flag) {
-      setTest(true);
-    }
-
-    if (registerData?.paymentUrl) {
-      setSuccess((prev) => {
-        prev.flag = true;
-        prev.paymentUrl = registerData?.paymentUrl;
-        return { ...prev };
-      });
-    }
     if (!registerData?.success) {
       if (registerData?.errorCode === 120)
         setError((prev) => {
@@ -74,6 +60,8 @@ const Registration = () => {
           return { ...prev };
         });
     }
+
+      setTest(true);
   };
 
   useEffect(() => {
@@ -84,14 +72,13 @@ const Registration = () => {
       !password.inputValid ||
       !repeatPassword.inputValid ||
       !isCoincidencePassword ||
-      !checked ||
       !captcha
     ) {
       setDisabledBtn(false);
     } else {
       setDisabledBtn(true);
     }
-  }, [name, lastName, email, password, repeatPassword, isCoincidencePassword, checked, captcha]);
+  }, [name, lastName, email, password, repeatPassword, isCoincidencePassword, captcha]);
 
   const inputDiv = [
     { name: 'firstName', nameHandler: name, placeholder: 'Name' },
@@ -127,9 +114,7 @@ const Registration = () => {
     <div className={'rootAuth'}>
       {test && <Redirect to={'/login'} />}
 
-      {success.flag && (
-        <PaymentPage2 open={success} setOpen={setSuccess} paymentUrl={success.paymentUrl} />
-      )}
+
       <div className={'changeLanguage'}>
         <ChangeLanguage />
       </div>

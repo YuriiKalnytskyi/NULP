@@ -3,6 +3,7 @@ const Joi = require('joi');
 require('dotenv').config();
 
 const envSchema = {
+  ENV: Joi.string().required(),
   PORT: Joi.number().required(),
 
   DB_NAME: Joi.string().required(),
@@ -39,7 +40,7 @@ async function handleValidation() {
       }
     }
 
-    console.log('✅ Success! Env validation was successfully passed! ✅');
+    console.log(`✅ Success! Env[${process.env.ENV}] validation was successfully passed! ✅`);
   } catch (e) {
     console.log('Environment variables validation failed. Check your dotenv variables:');
     console.error(e);

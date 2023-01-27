@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 const options = {
-  // baseURL: process.env.REACT_APP_API_URL,
-  baseURL: 'http://localhost:4000/'
+  baseURL: process.env.REACT_APP_API_URL
 };
 const axiosInstance = axios.create(options);
 
@@ -13,7 +12,7 @@ export default axiosInstance;
 export const getAllNewsServer = async () => {
   try {
     const token = localStorage.getItem('accessToken');
-    const response = await axiosInstance.get('/clubData/news', {
+    const response = await axiosInstance.get('/news/', {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -46,7 +45,7 @@ export const getAllNotification = async () => {
   try {
     const token = localStorage.getItem('accessToken');
 
-    const response = await axiosInstance.get(`/clubData/notification`, {
+    const response = await axiosInstance.get(`profile/notification`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

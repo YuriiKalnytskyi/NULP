@@ -65,9 +65,9 @@ const UserInfo = ({ open, setOpen, socket }) => {
           <div className={'profileHeader'}>
             <img className={'imageInProfile'} src={logoimg} alt="logoimg" />
             <div className={'profileTitle'}>
-              {profileData.firstName} {profileData.lastName}
+              {profileData?.firstName} {profileData?.lastName}
             </div>
-            <div className={'profileInfo'}>{profileData.email}</div>
+            <div className={'profileInfo'}>{profileData?.email}</div>
           </div>
 
           <div className={'profileButton'}>

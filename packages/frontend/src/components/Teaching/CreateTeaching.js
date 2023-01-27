@@ -8,7 +8,7 @@ import AddText from './AddText';
 import EditIcon from '@material-ui/icons/Edit';
 import EditText from './EditText';
 import { addTeachingServer } from '../../services/adminServise';
-import AddLink from './AddLink';
+import AddLink from '../News/CreateCard/AddLink';
 import EditLink from './EditLink';
 
 const CreateTeaching = ({ open, setOpen, socket }) => {

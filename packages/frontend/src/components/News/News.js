@@ -1,174 +1,73 @@
-import './News.css';
-import plus from '../../images/+.svg';
-import { useState } from 'react';
-import DeleteNewsOrTeaching from '../pop-ap/DeleteNewsOrTeaching';
-import { useTranslation } from 'react-i18next';
+import React, {useState} from 'react'
+import {useTranslation} from "react-i18next";
+import './Methodology.css'
+import OneCardMethodology from "./OneCardMethodology";
+import RedCardMethodology from "./RedCardMethodology";
+import AddMethodology from "./AddMethodology";
 
 const News = ({ allNews, setOpen, socket }) => {
-  const { t } = useTranslation();
-  const role = localStorage.getItem('role');
 
-  const [redNew, setRedNew] = useState({ flag: false, news: {} });
-  const [deleteValue, setDeleteValue] = useState({ flag: false, value: {} });
+  // const role = localStorage.getItem("role");
+  const role = 'admin';
 
-  const redNews = (news) => {
-    setRedNew((prev) => {
+
+
+  const [redMethodology, setRedMethodology] = useState({ flag: false, methodology: {} });
+
+  const redHomeMethodologyHandler = (methodology) => {
+    setRedMethodology((prev) => {
       prev.flag = true;
-      prev.news = news;
+      prev.methodology = methodology;
       return { ...prev };
     });
   };
 
-  const closeNews = () => {
-    setRedNew((prev) => {
+  const closeMethodology = () => {
+    setRedMethodology((prev) => {
       prev.flag = false;
-      prev.news = {};
+      prev.methodology = {};
       return { ...prev };
     });
   };
 
-  const deleteNews = () => {
-    setDeleteValue((prev) => {
-      prev.flag = true;
-      prev.value = redNew.news;
-      return { ...prev };
-    });
-  };
 
   return (
-    <div className={'NewsContainer'}>
-      {deleteValue.flag && (
-        <DeleteNewsOrTeaching
-          setOpen={setDeleteValue}
-          open={deleteValue}
-          value={deleteValue.value}
-          socket={socket}
-          component={'news'}
+      <div className={"methodologyContainer"}>
+
+        {redMethodology.flag && <RedCardMethodology
+            methodology={redMethodology.methodology}
+            closeMethodology={closeMethodology}
         />
-      )}
-      {redNew.flag && (
-        <div
-          style={window.innerWidth > 600 ? { width: '70%' } : { width: '100%' }}
-          className={'redNews'}
-        >
-          <div className={'NewsWrapper2'}>
-            <div className={'newsTime2'}>
-              {redNew.news.date.split('T')[0].split('-').join('.')}
-              <span style={{ marginLeft: '7px' }}>
-                {redNew.news.date.split('T')[1].split(':')[0]}:
-                {redNew.news.date.split('T')[1].split(':')[1]}
-              </span>
-            </div>
-            <div className={'newsTitle2'}>{redNew.news.title}</div>
-            <div className={'newsInfo2Container'}>
-              <div className={'newsInfo2'}>{redNew.news.description}</div>
-            </div>
-
-            <div className={'newsButton2'}>
-              <button onClick={closeNews} className={'readNewsButton'}>
-                Закрити
-              </button>
-              {role === 'admin' && (
-                <button onClick={deleteNews} className={'readNewsButton'}>
-                  Видалити
-                </button>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {!redNew.flag ? (
-        <div
-          style={window.innerWidth > 600 ? { height: '87%' } : { height: '77%' }}
-          className={redNew.flag ? 'NewsContainerSkrol2' : 'NewsContainerSkrol'}
-        >
-          {role === 'admin' && window.innerWidth > 600 && (
-            <div
-              className={'addNews'}
-              onClick={() => {
-                setOpen(true);
-              }}
-            >
-              <img src={plus} alt="plus" />
-            </div>
-          )}
-          {allNews.map((news, index) => (
-            <div
-              key={index}
-              className={'NewsWrapper'}
-              style={window.innerWidth > 600 ? { width: '550px' } : { width: '94%' }}
-            >
-              <div className={'newsTime'}>
-                {news.date.split('T')[0].split('-').join('.')}
-                <span style={{ marginLeft: '7px' }}>
-                  {news.date.split('T')[1].split(':')[0]}:{news.date.split('T')[1].split(':')[1]}
-                </span>
-              </div>
-              <div className={'newsTitle'}>{news.title}</div>
-              <div className={'newsInfo'}>
-                {redNew.flag ? news.description.substr(0, 200) : news.description.substr(0, 300)}
-                ...
-              </div>
-              <div className={'newsButton'}>
-                <button
-                  onClick={() => {
-                    redNews(news);
-                  }}
-                  className={'readNewsButton'}
-                >
-                  {t('Text')}
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : (
-        window.innerWidth > 600 && (
-          <div className={redNew.flag ? 'NewsContainerSkrol2' : 'NewsContainerSkrol'}>
-            {role === 'admin' && window.innerWidth > 600 && (
+        }
+        {
+          !redMethodology.flag ? <div
+              className={window.innerWidth > 600 ? "methodologyContainerSkrol" : 'methodologyContainerSkrol3'}>
+            {role === "admin" && window.innerWidth > 600 && <AddMethodology setOpen={setOpen}/>}
+            {
+              allNews && allNews.length ? allNews.map((methodology, index) =>
+                  <OneCardMethodology
+                      key={index}
+                      methodology={methodology}
+                      redHomeMethodologyHandler={redHomeMethodologyHandler}
+                  />) : null
+            }
+          </div> : window.innerWidth > 600 &&
               <div
-                className={'addNews'}
-                onClick={() => {
-                  setOpen(true);
-                }}
-              >
-                <img src={plus} alt="plus" />
+                  className={redMethodology.flag ? "methodologyContainerSkrol2" : "methodologyContainerSkrol" }>
+                {role === "admin" && <AddMethodology setOpen={setOpen}/>}
+                {
+                  allNews.length &&  allNews.map((methodology, index) =>
+                      <OneCardMethodology
+                          key={index}
+                          methodology={methodology}
+                          redHomeMethodologyHandler={redHomeMethodologyHandler}
+                      />)
+                }
               </div>
-            )}
-            {allNews.map((news, index) => (
-              <div
-                key={index}
-                className={'NewsWrapper'}
-                style={window.innerWidth > 600 ? { width: '550px' } : { width: '94%' }}
-              >
-                <div className={'newsTime'}>
-                  {news.date.split('T')[0].split('-').join('.')}
-                  <span style={{ marginLeft: '7px' }}>
-                    {news.date.split('T')[1].split(':')[0]}:{news.date.split('T')[1].split(':')[1]}
-                  </span>
-                </div>
-                <div className={'newsTitle'}>{news.title}</div>
-                <div className={'newsInfo'}>
-                  {redNew.flag ? news.description.substr(0, 200) : news.description.substr(0, 300)}
-                  ...
-                </div>
-                <div className={'newsButton'}>
-                  <button
-                    onClick={() => {
-                      redNews(news);
-                    }}
-                    className={'readNewsButton'}
-                  >
-                    {t('Text')}
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        )
-      )}
-    </div>
-  );
-};
+        }
+
+
+      </div>
+  )
+}
 export default News;

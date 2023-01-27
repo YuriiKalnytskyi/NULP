@@ -13,6 +13,17 @@ const getProfileInfo = {
     );
   }
 };
+const getNotification = {
+  get: async (req, res) => {
+    await controller.sendJson(
+      res,
+      async (connection) => {
+        return await service.getNotification.get(connection);
+      },
+      StatusCodes.CREATED
+    );
+  }
+};
 
 const changePassword = {
   put: async (req, res) => {
@@ -33,5 +44,6 @@ const deleteAccount = {
 module.exports = {
   changePassword,
   getProfileInfo,
-  deleteAccount
+  deleteAccount,
+  getNotification
 };

@@ -6,7 +6,7 @@ export const addNewsServer = async (data) => {
   try {
     const token = localStorage.getItem('accessToken');
 
-    const response = await axiosInstance.post('/admin/add/news', data, {
+    const response = await axiosInstance.post('news/add/newsNews', data, {
       headers: {
         Authorization: `Bearer ${token}`
       }

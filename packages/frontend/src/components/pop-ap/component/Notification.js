@@ -1,5 +1,3 @@
-import arrow2 from '../../../images/Polygon.png';
-import arrow from '../../../images/Polygon 4.png';
 import { useInput } from '../../../hooks/useInput';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
@@ -9,38 +7,14 @@ const Notification = ({ changeComponent, socket, setSuccess }) => {
   const { t } = useTranslation();
 
   const [disabledSendNotifi, setDisabledSendNotifi] = useState(false);
-  const [arrowFlag2, setArrowFlag2] = useState(false);
-  const [country, setСountry] = useState('Виберіть Країну');
-
-  const countryArr = [
-    'Ukraine',
-    'France',
-    'Spain',
-    'Sweden',
-    'Norway',
-    'Germany',
-    'Finland',
-    'Poland',
-    'Italy',
-    'United Kingdom',
-    'Romania',
-    'Belarus',
-    'Kazakhstan'
-  ];
-
-  const radioChange = (e) => {
-    setСountry(e.target.id);
-    setArrowFlag2(false);
-  };
 
   const textarea = useInput('', { isEmpty: true, minLength: 3 });
 
   const sendNotification = async () => {
     const sendNotificationData = await addNotificationServer({
-      country: country,
       description: textarea.value
     });
-    socket.emit('notification');
+    socket.emit('addData');
 
     if (sendNotificationData.signal) {
       setSuccess((prev) => {
@@ -49,17 +23,16 @@ const Notification = ({ changeComponent, socket, setSuccess }) => {
         return { ...prev };
       });
       textarea.setInputValid();
-      setСountry('Виберіть Країну');
     }
   };
 
   useEffect(() => {
-    if (!textarea.inputValid || country === 'Виберіть Країну') {
+    if (!textarea.inputValid) {
       setDisabledSendNotifi(false);
     } else {
       setDisabledSendNotifi(true);
     }
-  }, [textarea, country]);
+  }, [textarea]);
 
   return (
     <>
@@ -82,44 +55,6 @@ const Notification = ({ changeComponent, socket, setSuccess }) => {
         }
       />
 
-      <div className={'castomSelect2'}>
-        <div
-          className={'statusSignal'}
-          onClick={() => {
-            setArrowFlag2(!arrowFlag2);
-          }}
-        >
-          {country}
-        </div>
-        <img
-          onClick={() => {
-            setArrowFlag2(!arrowFlag2);
-          }}
-          className={'castomSelectArrow'}
-          src={arrowFlag2 ? arrow2 : arrow}
-          alt={'test'}
-        />
-        {arrowFlag2 && (
-          <div className={'castomSelectInput2'}>
-            <div className={'castomSelectBbox'}>
-              <div className="optionsContainer active">
-                {countryArr.map((value, index) => (
-                  <div key={index} className="option">
-                    <input
-                      type="radio"
-                      className="radio"
-                      onChange={radioChange}
-                      id={value}
-                      name="country"
-                    />
-                    <label htmlFor={value}>{value}</label>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
 
       <button
         onClick={sendNotification}

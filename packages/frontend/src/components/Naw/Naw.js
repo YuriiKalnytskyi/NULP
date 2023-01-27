@@ -52,7 +52,7 @@ const Naw = ({ naw, setNaw, componentState, setComponentState }) => {
 
           <a
             style={{ textDecoration: 'none' }}
-            href={'https://t.me/ukrtrader_manager'}
+            href={'https://t.me/'}
             target={'_blanka'}
           >
             <div className={'naw'}>

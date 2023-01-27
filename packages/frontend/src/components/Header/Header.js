@@ -2,12 +2,24 @@ import './Header.css';
 import notifImg from '../../images/notifImg.png';
 import userImg from '../../images/userImg.png';
 import { Button, Popover } from '@material-ui/core';
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import { getAllNotification } from '../../services/services';
 import ChangeLanguage from '../ChangeLanguage/ChangeLanguage';
 
 const Header = ({ componentState, open, setOpen, setUpdateFlag, setComponentState }) => {
   const [menuAnchor, setMenuAnchor] = useState(false);
+
+    const [allNotification, setAllNotification] = useState([])
+
+    const getNotification = async () => {
+        const notificationData = await getAllNotification()
+        setAllNotification(notificationData)
+    }
+
+
+    useEffect(async () => {
+        await getNotification()
+    }, [])
 
   return (
     <div className={'Header'}>
@@ -56,7 +68,19 @@ const Header = ({ componentState, open, setOpen, setUpdateFlag, setComponentStat
               horizontal: 'right'
             }}
           >
-            <div className={'nitifiContent'}>dldkdk</div>
+            <div className={'nitifiContent'}>
+                {
+                    allNotification ? allNotification.map((notification, index) =>
+                        <div key={index} className={"notification"}>
+                            <div>{notification?.description}</div>
+                            <div style={{
+                                width: '80%',
+                                marginTop: "5px",
+                                borderBottom: '#2f3640 0.5px solid'
+                            }}/>
+                        </div>) : ''
+                }
+            </div>
           </Popover>
         </div>
         <div

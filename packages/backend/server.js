@@ -11,7 +11,7 @@ server.listen(port, () => {
 });
 
 io.on('connection', (socket) => {
-  console.log(`---- Wss running on port [${socket}]----`);
+  console.log(`---- Wss running on port [${port}]----`);
 
   socket.on('addData', () => {
     io.sockets.emit('addData', {

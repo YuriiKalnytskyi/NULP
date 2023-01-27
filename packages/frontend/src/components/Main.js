@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import './Main.css';
 import io from 'socket.io-client';
@@ -11,14 +11,18 @@ import noise from '../images/noise.png';
 import PreReloader from './preLoader/PreReloader';
 import { useRequest } from '../hooks/useRequest';
 import Naw2 from './Naw/Naw2';
-import { getAllTeachingServer } from '../services/services';
+import {getAllNewsServer, getAllTeachingServer} from '../services/services';
+import News from "./News/News";
+import CreateNews from "./News/CreateNews";
+import CreateCard from "./News/CreateCard/CreareCard";
+
 
 let socket = null;
 
 const Main = () => {
 
   const { t } = useTranslation();
-  const [componentState, setComponentState] = useState(t('Home'));
+  const [componentState, setComponentState] = useState(t('News'));
   const [loader, setLoader] = useState(false);
 
   const [naw, setNaw] = useState(false);
@@ -27,8 +31,10 @@ const Main = () => {
   const [addNotificationFlag, setAddNotificationFlag] = useState('');
 
   const [openTeaching, setOpenTeaching] = useState(false);
+  const [openNews, setOpenNews] = useState(false);
 
   const [allTeaching, setAllTeaching] = useState([]);
+  const [allNews, setAllNews] = useState([]);
 
   const data = (d) => {
     const all = {};
@@ -50,31 +56,30 @@ const Main = () => {
     const getAllTeachingData = await getAllTeachingServer();
     setAllTeaching(data(getAllTeachingData));
   };
+  const getAllNews = async () => {
+    const getAllNewsData = await getAllNewsServer();
+    setAllNews(getAllNewsData);
+  };
 
   useRequest('getAllTeaching', getAllTeaching, [updateFlag], setLoader);
+  useRequest('getAllNews', getAllNews, [updateFlag], setLoader);
 
   const [openUserInfo, setOpenUserInfo] = useState(false);
 
-  // useEffect(() => {
-  //
-  //   // socket = io('https://localhost:4000/', {
-  //   //   transports: ['websocket', 'polling'], // use WebSocket first, if available
-  //   // });
-  //
-  //   socket = io('https://localhost:4000/', {
-  //     cors: {
-  //       origin: "http://localhost:4000",
-  //       credentials: true
-  //     },transports : ['websocket', "websocket", 'polling'] });
-  //
-  //   socket.on("connect", () => console.log(`Client connected: ${socket.id}`));
-  //
-  //   socket.on("addData", (data) => {
-  //     setTimeout(() => {
-  //       setUpdateFlag(data.user);
-  //     }, 1000);
-  //   });
-  // }, []);
+  useEffect(() => {
+
+    socket = io(process.env.REACT_APP_API_URL, {
+      cors: {
+        origin: process.env.REACT_APP_API_URL,
+        credentials: true
+      },transports : ['websocket', "websocket", 'polling'] });
+
+    socket.on("addData", (data) => {
+      setTimeout(() => {
+        setUpdateFlag(data.user);
+      }, 1000);
+    });
+  }, []);
 
   if (loader) {
     return <PreReloader />;
@@ -115,18 +120,24 @@ const Main = () => {
 
           <div className={window.innerWidth > 600 ? 'infoContainer' : 'infoContainer2'}>
             <div className={'homeContainer'}>
-              {/*{*/}
-              {/*  componentState === t("News") && <div style={{height: '100%'}}>*/}
-              {/*    {!openNews && <News allNews={allNews}*/}
-              {/*                        setOpen={setOpenNews}*/}
-              {/*                        socket={socket}*/}
-              {/*    />}*/}
-              {/*    {*/}
-              {/*      openNews && <CreateNews open={openNews} setOpen={setOpenNews} socket={socket} />*/}
-              {/*    }*/}
+              {
+                componentState === t("News") && <div style={{height: '100%'}}>
+                  {!openNews && <News allNews={allNews}
+                                      setOpen={setOpenNews}
+                                      socket={socket}
+                  />}
+                  {
+                    openNews && <CreateCard
+                        open={openNews}
+                        setOpen={setOpenNews}
+                        socket={socket}
+                        textInput={'Методичка'}
+                        component={'methodology'}
+                    />
+                  }
 
-              {/*  </div>*/}
-              {/*}*/}
+                </div>
+              }
               {componentState === t('Teaching') && (
                 <div style={{ height: '100%' }}>
                   {!openTeaching && (

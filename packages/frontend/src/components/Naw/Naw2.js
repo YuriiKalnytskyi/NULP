@@ -36,7 +36,7 @@ const Naw2 = ({ componentState, setComponentState }) => {
       <div>
         <a
           style={{ textDecoration: 'none' }}
-          href={'https://t.me/ukrtrader_manager'}
+          href={'https://t.me/'}
           target={'_blanka'}
         >
           <NawComponent ing={helpImd} state={componentState} text={t('Help')} />
